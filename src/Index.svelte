@@ -11,7 +11,7 @@ import Suppliers from "./components/Suppliers.svelte";
       class="box-content w-60 md:w-96" />
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-4 md:mx-10 my-5 rounded-md">
+  <div class="grid grid-cols-1 md:grid-cols-4 mx-5 md:mx-0 my-5">
     <Options />
     <div class="bg-primary">1</div>
     <div class="bg-primary md:col-span-2">2</div>
