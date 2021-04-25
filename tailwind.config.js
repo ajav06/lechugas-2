@@ -14,6 +14,10 @@ module.exports = {
         grey: '#746868',
         price: '#002152',
       },
+      screens: {
+        '3xl': '1792px',
+        // => @media (min-width: 1792px) { ... }
+      },
     },
     fontFamily: {
       comfortaa: ['Comfortaa'],
