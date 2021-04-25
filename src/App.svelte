@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Index from './Index.svelte'
+import Index from "./Index.svelte";
 </script>
 
 <main class="flex justify-center">
-	<Index />
+  <Index />
 </main>
