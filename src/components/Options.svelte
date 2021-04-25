@@ -22,7 +22,7 @@ let options: Array<Object> = [
   },
 ];
 
-const activarOpciones = (opcion) => {
+const activarOpciones = (opcion: string) => {
   let optionsOptions: HTMLCollectionOf<Element> = document.getElementsByClassName(
     'option-options borders-left'
   );

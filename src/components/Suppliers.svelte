@@ -33,7 +33,7 @@ let suppliers: Array<Object> = [
   },
 ];
 
-const activarProveedor = (nombre) => {
+const activarProveedor = (nombre: string) => {
   let suppliersOptions: HTMLCollectionOf<Element> = document.getElementsByClassName(
     'options-suppliers borders-right'
   );

@@ -1,12 +1,14 @@
 <script lang="ts">
 import { optionSelected } from '../stores';
 
-$: if ($optionSelected === 'Consultar') {
-  let optionContent: Element = document.getElementById('Consultar-option');
-  optionContent.classList.remove('hidden');
-} else {
-  let optionContent: Element = document.getElementById('Consultar-option');
-  if (optionContent) optionContent.classList.add('hidden');
+$: {
+  if ($optionSelected === 'Consultar') {
+    let optionContent: Element = document.getElementById('Consultar-option');
+    optionContent.classList.remove('hidden');
+  } else {
+    let optionContent: Element = document.getElementById('Consultar-option');
+    if (optionContent) optionContent.classList.add('hidden');
+  }
 }
 </script>
 
