@@ -33,7 +33,7 @@
 }
 
 .img-suppliers {
-  @apply h-8 self-center md:ml-5;
+  @apply h-8 self-center md:ml-6 xl:ml-20;
 }
 
 .options-suppliers {

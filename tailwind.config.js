@@ -13,6 +13,10 @@ module.exports = {
         active: '#f4f5f6',
         grey: '#746868',
       },
+      screens: {
+        '3xl': '1792px',
+        // => @media (min-width: 1792px) { ... }
+      },
     },
     fontFamily: {
       comfortaa: ['Comfortaa'],

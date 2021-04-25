@@ -1,6 +1,6 @@
 <script lang="ts">
-import Options from "./components/Options.svelte";
-import Suppliers from "./components/Suppliers.svelte";
+import Options from './components/Options.svelte';
+import Suppliers from './components/Suppliers.svelte';
 </script>
 
 <main class="container px-auto pt-5">
