@@ -8,7 +8,7 @@
       <span class="text-options font-comfortaa-semibol"> Dolar Today </span>
     </div>
     <div class="options-suppliers borders-right">
-      <img src="./images/Yadio.svg" alt="" class="img-suppliers" />
+      <img src="./images/yadio.svg" alt="" class="img-suppliers" />
       <span class="text-options font-comfortaa-semibol"> Yadio </span>
     </div>
     <div class="options-suppliers borders-right">
@@ -24,7 +24,7 @@
       <span class="text-options font-comfortaa-semibol"> LocalBitcoins </span>
     </div>
     <div class="options-suppliers">
-      <img src="./images/Promedio.svg" alt="" class="img-suppliers" />
+      <img src="./images/promedio.svg" alt="" class="img-suppliers" />
       <span class="text-options font-comfortaa-semibol"> Promedio </span>
     </div>
     <div class="title-suppliers-2">

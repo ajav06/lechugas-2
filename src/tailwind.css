@@ -57,7 +57,7 @@
 }
 
 .img-options {
-  @apply h-8 self-center md:ml-5;
+  @apply h-8 self-center;
 }
 
 .roundear {
