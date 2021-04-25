@@ -1,20 +1,33 @@
 <main>
-  <div
-    class="grid grid-cols-7 md:grid-cols-1 bg-primary rounded-b-lg md:rounded-b-none md:rounded-r-lg">
-    <div
-      class="bg-background-title col-span-12 md:h-10 flex justify-center md:rounded-tr-lg">
-      <span
-        class="self-center text-title font-comfortaa-semibol tracking-wider">
+  <div class="options">
+    <div class="title-suppliers">
+      <strong class="text-suppliers font-comfortaa-semibol">
         Proveedores
-      </span>
+      </strong>
     </div>
-    <div class="md:col-span-12 md:h-10 flex justify-center">
-      <span class="self-center font-comfortaa-semibol tracking-wider">
-        Dolar Today
-      </span>
+    <div class="options-suppliers borders-right">
+      <img src="./images/DolarToday.svg" alt="" class="img-suppliers" />
+      <span class="text-options font-comfortaa-semibol"> Dolar Today </span>
     </div>
-    <div class="md:col-span-12 md:h-10 flex justify-center">Yadio</div>
-    <div class="md:col-span-12 md:h-10 flex justify-center">BCV</div>
-    <div class="md:col-span-12 md:h-10 flex justify-center">Monitor Dolar</div>
+    <div class="options-suppliers borders-right">
+      <img src="./images/Yadio.svg" alt="" class="img-suppliers" />
+      <span class="text-options font-comfortaa-semibol"> Yadio </span>
+    </div>
+    <div class="options-suppliers borders-right">
+      <img src="./images/BCV.svg" alt="" class="img-suppliers" />
+      <span class="text-options font-comfortaa-semibol"> BCV </span>
+    </div>
+    <div class="options-suppliers borders-right">
+      <img src="./images/MonitorDolar.svg" alt="" class="img-suppliers" />
+      <span class="text-options font-comfortaa-semibol"> Monitor Dolar </span>
+    </div>
+    <div class="options-suppliers borders-right">
+      <img src="./images/LocalBitcoins.svg" alt="" class="img-suppliers" />
+      <span class="text-options font-comfortaa-semibol"> LocalBitcoins </span>
+    </div>
+    <div class="options-suppliers">
+      <img src="./images/DolarToday.svg" alt="" class="img-suppliers" />
+      <span class="text-options font-comfortaa-semibol"> Promedio </span>
+    </div>
   </div>
 </main>
