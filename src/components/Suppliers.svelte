@@ -1,8 +1,14 @@
+<style>
+input {
+  margin-left: 0 !important;
+}
+</style>
+
 <script lang="ts">
 let suppliers: Array<Object> = [
   {
     id: '123',
-    nombre: 'Dolar Today',
+    nombre: 'DolarToday',
     img: './images/DolarToday.svg',
   },
   {
@@ -14,7 +20,7 @@ let suppliers: Array<Object> = [
     img: './images/BCV.svg',
   },
   {
-    nombre: 'Monitor Dolar',
+    nombre: 'MonitorDolar',
     img: './images/MonitorDolar.svg',
   },
   {
@@ -38,13 +44,25 @@ const activarProveedor = (nombre) => {
 
   let supplierOption: Element = document.getElementById(nombre);
   supplierOption.classList.add('bg-primary');
+
+  let supplierOptionCheck: Element = document.getElementById(`check-${nombre}`);
+  supplierOptionCheck.checked = !supplierOptionCheck.checked;
+
+  let suppliersOptionsChecks: HTMLCollectionOf<Element> = document.getElementsByClassName(
+    'check-suppliers'
+  );
+
+  for (let i = 0; i < suppliersOptionsChecks.length; i++) {
+    if (suppliersOptionsChecks[i].checked)
+      console.log(suppliersOptionsChecks[i]);
+  }
 };
 </script>
 
 <main>
   <div class="suppliers">
     <div class="title-suppliers-1">
-      <span class="text-suppliers font-comfortaa-semibol"> Proveedores </span>
+      <span class="text-suppliers font-comfortaa font-bold"> Proveedores </span>
     </div>
 
     {#each suppliers as { nombre, img }, index}
@@ -53,7 +71,13 @@ const activarProveedor = (nombre) => {
         class="options-suppliers borders-right"
         on:click={() => activarProveedor(nombre)}>
         <img src={img} alt={nombre} class="img-suppliers" />
-        <span class="text-options font-comfortaa-semibol">
+
+        <input
+          type="checkbox"
+          class="justify-center ml-0 mt-1 check-suppliers block md:hidden"
+          id={`check-${nombre}`}
+          on:click={() => activarProveedor(nombre)} />
+        <span class="text-options font-comfortaa font-ligth">
           {nombre}
         </span>
       </button>
@@ -63,14 +87,16 @@ const activarProveedor = (nombre) => {
       {/if}
     {:else}
       <div class="options-suppliers borders-right">
-        <span class="text-options font-comfortaa-semibol">
+        <span class="text-options font-comfortaa font-ligth">
           Cargando Proveedores...
         </span>
       </div>
     {/each}
 
     <div class="title-suppliers-2">
-      <span class="text-suppliers font-comfortaa-semibol"> Proveedores </span>
+      <span class="text-suppliers font-comfortaa font-ligth">
+        Proveedores
+      </span>
     </div>
   </div>
 </main>
