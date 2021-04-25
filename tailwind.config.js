@@ -12,6 +12,7 @@ module.exports = {
         'sub-title': '#27343a',
         active: '#f4f5f6',
         grey: '#746868',
+        price: '#002152',
       },
       screens: {
         '3xl': '1792px',
