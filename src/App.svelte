@@ -2,6 +2,6 @@
 	import Index from './Index.svelte'
 </script>
 
-<main>
+<main class="flex justify-center">
 	<Index />
 </main>
