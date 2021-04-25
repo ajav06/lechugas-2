@@ -12,10 +12,6 @@
   @apply border border-t-0 border-l-0 border-grey;
 }
 
-<<<<<<< HEAD
-.borders-movil {
-  @apply border border-t-0 border-b-0 border-grey;
-=======
 .options {
   @apply grid grid-cols-7 md:grid-cols-1 bg-secundary rounded-b-lg md:rounded-b-none md:rounded-r-lg;
 }
@@ -38,5 +34,4 @@
 
 .options-suppliers {
   @apply md:col-span-12 md:h-16 flex justify-center md:justify-start space-x-2;
->>>>>>> 1dde7300a3706fd146edcf9e89bc7ccdd3b02074
 }
