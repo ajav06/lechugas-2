@@ -33408,6 +33408,7 @@ video {
 }
 
 .title-title-option {
+  display: flex;
   font-size: 1.25rem;
   line-height: 1.75rem;
   --tw-text-opacity: 1;
@@ -33434,12 +33435,12 @@ video {
   background-color: rgba(157, 190, 163, var(--tw-bg-opacity));
   display: flex;
   justify-content: center;
+  height: 4rem;
   grid-column: span 2 / span 2;
 }
 
 @media (min-width: 768px){
   .option-options{
-    height: 4rem;
     grid-column: span 12 / span 12;
   }
 }

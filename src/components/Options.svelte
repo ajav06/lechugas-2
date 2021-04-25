@@ -1,3 +1,9 @@
+<style>
+.title-title-option {
+  display: block;
+}
+</style>
+
 <main class="bg-secundary roundear">
   <div class="options ">
     <div class="title-opcions">
@@ -15,7 +21,6 @@
       <img src="./images/historial.svg" alt="" class="img-options" />
       <span class="font-comfortaa-semibol text-options"> Historial </span>
     </div>
-    <div class="bg-secundary" />
     <div />
   </div>
 </main>

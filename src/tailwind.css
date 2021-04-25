@@ -49,11 +49,11 @@
 }
 
 .title-title-option {
-  @apply text-title text-xl text-options;
+  @apply text-title text-xl flex text-options;
 }
 
 .option-options {
-  @apply col-span-2 md:col-span-12 md:h-16 flex justify-center space-x-2 bg-secundary;
+  @apply col-span-2 md:col-span-12 h-16 flex justify-center space-x-2 bg-secundary;
 }
 
 .img-options {
