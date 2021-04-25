@@ -17,7 +17,7 @@
 }
 
 .text-options {
-  @apply self-center tracking-wider hidden md:block;
+  @apply self-center tracking-wider hidden md:block font-light;
 }
 
 .title-suppliers-1 {
@@ -29,7 +29,7 @@
 }
 
 .text-suppliers {
-  @apply self-center text-title tracking-wider;
+  @apply self-center text-title tracking-wider font-bold;
 }
 
 .img-suppliers {
@@ -41,7 +41,7 @@
 }
 
 .options {
-  @apply grid grid-cols-6 md:grid-cols-1 bg-primary rounded-t-lg md:rounded-b-none md:rounded-l-lg;
+  @apply grid grid-cols-6 md:grid-cols-1 rounded-t-lg md:rounded-b-none md:rounded-l-lg;
 }
 
 .title-opcions {
@@ -49,11 +49,11 @@
 }
 
 .title-title-option {
-  @apply text-title text-xl flex text-options;
+  @apply text-title text-xl text-suppliers;
 }
 
 .option-options {
-  @apply col-span-2 md:col-span-12 h-16 flex justify-center space-x-2 bg-secundary;
+  @apply col-span-2 md:col-span-12 h-16 flex justify-center space-x-2;
 }
 
 .img-options {

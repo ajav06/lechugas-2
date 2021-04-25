@@ -1,5 +1,5 @@
 <main class="bg-primary md:col-span-2">
-  <div class="text-lg text-sub-title font-bold mt-16 text-center">
+  <div class="text-lg text-sub-title font-comfortaa  mt-16 text-center">
     El precio de la lechuga es
   </div>
   <div class="text-3xl text-price font-bold text-center mt-10">
