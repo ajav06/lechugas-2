@@ -49,7 +49,7 @@
 }
 
 .title-title-option {
-  @apply text-title text-xl text-options;
+  @apply text-title text-xl text-options block;
 }
 
 .option-options {
