@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
 /*! tailwindcss v2.1.2 | MIT License | https://tailwindcss.com */
 
@@ -33247,6 +33247,84 @@ video {
   border-width: 1px;
   border-top-width: 0px;
   border-left-width: 0px;
+}
+
+.options {
+  --tw-bg-opacity: 1;
+  background-color: rgba(157, 190, 163, var(--tw-bg-opacity));
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+@media (min-width: 768px){
+  .options{
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.text-options {
+  align-self: center;
+  letter-spacing: 0.05em;
+}
+
+.title-suppliers {
+  --tw-bg-opacity: 1;
+  background-color: rgba(94, 141, 131, var(--tw-bg-opacity));
+  display: flex;
+  justify-content: center;
+  height: 4rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  grid-column: span 12 / span 12;
+}
+
+@media (min-width: 768px){
+  .title-suppliers{
+    border-top-right-radius: 0.5rem;
+  }
+}
+
+.text-suppliers {
+  align-self: center;
+  --tw-text-opacity: 1;
+  color: rgba(232, 174, 28, var(--tw-text-opacity));
+  letter-spacing: 0.05em;
+}
+
+.img-suppliers {
+  align-self: center;
+  height: 2rem;
+}
+
+@media (min-width: 768px){
+  .img-suppliers{
+    margin-left: 1.25rem;
+  }
+}
+
+.options-suppliers > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.options-suppliers{
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px){
+  .options-suppliers{
+    justify-content: flex-start;
+    height: 4rem;
+    grid-column: span 12 / span 12;
+  }
 }
 
 @media (min-width: 640px){

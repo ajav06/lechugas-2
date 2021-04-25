@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,4 +10,28 @@
 
 .borders-right {
   @apply border border-t-0 border-l-0 border-grey;
+}
+
+.options {
+  @apply grid grid-cols-7 md:grid-cols-1 bg-secundary rounded-b-lg md:rounded-b-none md:rounded-r-lg;
+}
+
+.text-options {
+  @apply self-center tracking-wider;
+}
+
+.title-suppliers {
+  @apply bg-background-title col-span-12 h-16 flex justify-center md:rounded-tr-lg text-xl;
+}
+
+.text-suppliers {
+  @apply self-center text-title tracking-wider;
+}
+
+.img-suppliers {
+  @apply h-8 self-center md:ml-5;
+}
+
+.options-suppliers {
+  @apply md:col-span-12 md:h-16 flex justify-center md:justify-start space-x-2;
 }
