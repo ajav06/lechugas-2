@@ -21,6 +21,7 @@ module.exports = {
     },
     fontFamily: {
       comfortaa: ['Comfortaa'],
+      'comfortaa-semibold': ['Comfortaa-Light-300'],
     },
   },
   variants: {

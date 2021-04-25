@@ -1,16 +1,15 @@
-<main class="bg-primary md:col-span-2">
-  <div class="text-lg text-sub-title font-comfortaa  mt-16 text-center">
+<main class="bg-primary md:col-span-2 place-content-center">
+  <div class="font-comfortaa mt-4 md:0 info-tittle ">Consultar</div>
+  <div class="font-comfortaa mt-6 md:mt-16 consult-text ">
     El precio de la lechuga es
   </div>
-  <div class="text-3xl text-price font-bold text-center mt-10">
+  <div class="text-4xl text-price font-comfortaa font-bold text-center mt-10">
     2.456.123,04 BsS
   </div>
-  <div class="text-lg text-sub-title font-bold text-center mt-10">
-    11 de abril del 2021
+  <div class="font-comfortaa mt-10 consult-text">11 de abril del 2021</div>
+  <div class="font-comfortaa mt-5 consult-text">6:00 pm</div>
+  <div class="flex justify-center">
+    <button class="font-comfortaa mt-10 copy-btn"> Copiar </button>
   </div>
-  <div class="text-lg text-sub-title font-bold text-center mt-5">6:00 pm</div>
-  <button
-    class="bg-secundary self-align-center border-4 border-background-title rounded-lg">
-    Copiar
-  </button>
+  <div class="font-comfortaa mt-10 text-fuente ">Fuente</div>
 </main>

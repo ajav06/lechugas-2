@@ -63,3 +63,19 @@
 .roundear {
   @apply rounded-t-lg md:rounded-b-none md:rounded-l-lg;
 }
+
+.consult-text {
+  @apply text-center text-lg text-sub-title font-semibold;
+}
+
+.copy-btn {
+  @apply bg-secundary border-4 font-semibold text-center border-background-title rounded-lg px-2 py-1;
+}
+
+.text-fuente {
+  @apply text-base text-sub-title underline  font-semibold text-center;
+}
+
+.info-tittle {
+  @apply md:hidden text-center text-xl text-sub-title font-semibold;
+}
