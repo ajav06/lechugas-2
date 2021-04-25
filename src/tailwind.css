@@ -64,12 +64,12 @@
   @apply rounded-t-lg md:rounded-b-none md:rounded-l-lg;
 }
 
-.consult-text {
+.info-generic-text {
   @apply text-center text-lg text-sub-title font-semibold;
 }
 
 .copy-btn {
-  @apply bg-secundary border-4 font-semibold text-center border-background-title rounded-lg px-2 py-1;
+  @apply bg-secundary text-sub-title border-4 font-semibold text-center border-background-title rounded-lg px-2 py-1;
 }
 
 .text-fuente {
@@ -78,4 +78,12 @@
 
 .info-tittle {
   @apply md:hidden text-center text-xl text-sub-title font-semibold;
+}
+
+.input-price {
+  @apply bg-active rounded-lg py-1 text-center text-sub-title;
+}
+
+.change-coins {
+  @apply text-lg ml-2 font-bold text-sub-title;
 }

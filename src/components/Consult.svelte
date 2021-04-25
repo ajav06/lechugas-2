@@ -14,14 +14,14 @@ $: if ($optionSelected === 'Consultar') {
   class="bg-primary md:col-span-2 place-content-center"
   id="Consultar-option">
   <div class="font-comfortaa mt-4 md:0 info-tittle ">Consultar</div>
-  <div class="font-comfortaa mt-6 md:mt-16 consult-text ">
+  <div class="font-comfortaa mt-6 md:mt-16 info-generic-text ">
     El precio de la lechuga es
   </div>
   <div class="text-4xl text-price font-comfortaa font-bold text-center mt-10">
     2.456.123,04 BsS
   </div>
-  <div class="font-comfortaa mt-10 consult-text">11 de abril del 2021</div>
-  <div class="font-comfortaa mt-5 consult-text">6:00 pm</div>
+  <div class="font-comfortaa mt-10 info-generic-text">11 de abril del 2021</div>
+  <div class="font-comfortaa mt-5 info-generic-text">6:00 pm</div>
   <div class="flex justify-center">
     <button class="font-comfortaa mt-10 copy-btn"> Copiar </button>
   </div>
