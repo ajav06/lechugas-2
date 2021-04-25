@@ -1,5 +1,5 @@
 <main>
-  <div class="grid grid-rows-1 mx-5 ">
+  <div class="grid grid-rows-1 ">
     <div class="grid grid-cols-1 ">
       <div class="bg-background-title col-span-12 h-10 flex justify-center ">
         <span
