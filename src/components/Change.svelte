@@ -1,5 +1,7 @@
 <script lang="ts">
-import { optionSelected } from '../stores';
+import { optionSelected, supplierSelected } from '../stores';
+
+let supplier: object;
 
 $: {
   if ($optionSelected === 'Convertir') {
@@ -9,6 +11,8 @@ $: {
     let optionContent: Element = document.getElementById('Convertir-option');
     if (optionContent) optionContent.classList.add('hidden');
   }
+
+  if ($supplierSelected) supplier = $supplierSelected;
 }
 </script>
 
@@ -33,6 +37,15 @@ $: {
     <div class="flex justify-center">
       <button class="font-comfortaa mt-10 copy-btn"> Copiar </button>
     </div>
-    <div class="font-comfortaa mt-10 text-fuente ">Fuente</div>
+    {#if supplier && supplier.nombre !== 'Promedio'}
+      <div class="flex justify-center">
+        <a
+          class="font-comfortaa mt-10 text-fuente text-center"
+          target="_blank"
+          href={supplier.url}>
+          Fuente
+        </a>
+      </div>
+    {/if}
   </div>
 </main>

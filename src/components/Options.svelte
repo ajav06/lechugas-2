@@ -5,7 +5,7 @@
 </style>
 
 <script lang="ts">
-import { optionSelected } from '../stores';
+import { optionSelected, history } from '../stores';
 
 let options: Array<Object> = [
   {
@@ -27,7 +27,7 @@ const activarOpciones = (opcion: string) => {
     'option-options borders-left'
   );
 
-  optionSelected.update((n) => opcion);
+  optionSelected.set(opcion);
 
   for (let i = 0; i < optionsOptions.length; i++) {
     optionsOptions[i].classList.remove('bg-primary');
@@ -36,6 +36,9 @@ const activarOpciones = (opcion: string) => {
   let optionOption: Element = document.getElementById(opcion);
 
   optionOption.classList.add('bg-primary');
+
+  if (opcion === 'Historial') history.set(true);
+  else history.set(false);
 };
 </script>
 
