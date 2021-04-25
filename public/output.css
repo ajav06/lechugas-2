@@ -33253,7 +33253,14 @@ video {
   border-color: rgba(116, 104, 104, var(--tw-border-opacity));
   border-width: 1px;
   border-top-width: 0px;
+  border-bottom-width: 0px;
   border-left-width: 0px;
+}
+
+@media (min-width: 768px){
+  .borders-right{
+    border-bottom-width: 1px;
+  }
 }
 
 .suppliers {
@@ -33262,7 +33269,7 @@ video {
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
   display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
 @media (min-width: 768px){
@@ -33272,17 +33279,45 @@ video {
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 }
 
 .text-options {
+  display: none;
   align-self: center;
   letter-spacing: 0.05em;
 }
 
-.title-suppliers {
+@media (min-width: 768px){
+  .text-options{
+    display: block;
+  }
+}
+
+.title-suppliers-1 {
   --tw-bg-opacity: 1;
   background-color: rgba(94, 141, 131, var(--tw-bg-opacity));
+  display: none;
+  justify-content: center;
+  height: 4rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  grid-column: span 12 / span 12;
+}
+
+@media (min-width: 768px){
+  .title-suppliers-1{
+    border-top-right-radius: 0.5rem;
+    display: flex;
+  }
+}
+
+.title-suppliers-2 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(94, 141, 131, var(--tw-bg-opacity));
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   display: flex;
   justify-content: center;
   height: 4rem;
@@ -33292,8 +33327,9 @@ video {
 }
 
 @media (min-width: 768px){
-  .title-suppliers{
+  .title-suppliers-2{
     border-top-right-radius: 0.5rem;
+    display: none;
   }
 }
 
@@ -33324,12 +33360,12 @@ video {
 .options-suppliers{
   display: flex;
   justify-content: center;
+  height: 4rem;
 }
 
 @media (min-width: 768px){
   .options-suppliers{
     justify-content: flex-start;
-    height: 4rem;
     grid-column: span 12 / span 12;
   }
 }
@@ -33376,8 +33412,15 @@ video {
   line-height: 1.75rem;
   --tw-text-opacity: 1;
   color: rgba(232, 174, 28, var(--tw-text-opacity));
+  display: none;
   align-self: center;
   letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px){
+  .title-title-option{
+    display: block;
+  }
 }
 
 .option-options > :not([hidden]) ~ :not([hidden]){

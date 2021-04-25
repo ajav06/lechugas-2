@@ -9,19 +9,23 @@
 }
 
 .borders-right {
-  @apply border border-t-0 border-l-0 border-grey;
+  @apply border border-t-0 border-l-0 border-b-0 md:border-b border-grey;
 }
 
 .suppliers {
-  @apply grid grid-cols-7 md:grid-cols-1 bg-secundary rounded-b-lg md:rounded-b-none md:rounded-r-lg;
+  @apply grid grid-cols-6 md:grid-cols-7 md:grid-cols-1 bg-secundary rounded-b-lg md:rounded-b-none md:rounded-r-lg;
 }
 
 .text-options {
-  @apply self-center tracking-wider;
+  @apply self-center tracking-wider hidden md:block;
 }
 
-.title-suppliers {
-  @apply bg-background-title col-span-12 h-16 flex justify-center md:rounded-tr-lg text-xl;
+.title-suppliers-1 {
+  @apply bg-background-title col-span-12 h-16 hidden md:flex justify-center md:rounded-tr-lg text-xl;
+}
+
+.title-suppliers-2 {
+  @apply bg-background-title col-span-12 h-16 flex md:hidden justify-center rounded-b-lg md:rounded-tr-lg text-xl;
 }
 
 .text-suppliers {
@@ -33,7 +37,7 @@
 }
 
 .options-suppliers {
-  @apply md:col-span-12 md:h-16 flex justify-center md:justify-start space-x-2;
+  @apply md:col-span-12 h-16 flex justify-center md:justify-start space-x-2;
 }
 
 .options {

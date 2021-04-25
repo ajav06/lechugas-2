@@ -1,9 +1,7 @@
 <main>
-  <div class="options">
-    <div class="title-suppliers">
-      <strong class="text-suppliers font-comfortaa-semibol">
-        Proveedores
-      </strong>
+  <div class="suppliers">
+    <div class="title-suppliers-1">
+      <span class="text-suppliers font-comfortaa-semibol"> Proveedores </span>
     </div>
     <div class="options-suppliers borders-right">
       <img src="./images/DolarToday.svg" alt="" class="img-suppliers" />
@@ -28,6 +26,9 @@
     <div class="options-suppliers">
       <img src="./images/DolarToday.svg" alt="" class="img-suppliers" />
       <span class="text-options font-comfortaa-semibol"> Promedio </span>
+    </div>
+    <div class="title-suppliers-2">
+      <span class="text-suppliers font-comfortaa-semibol"> Proveedores </span>
     </div>
   </div>
 </main>
