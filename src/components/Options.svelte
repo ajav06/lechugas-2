@@ -5,6 +5,8 @@
 </style>
 
 <script lang="ts">
+import { optionSelected } from '../stores';
+
 let options: Array<Object> = [
   {
     nombre: 'Consultar',
@@ -21,25 +23,26 @@ let options: Array<Object> = [
 ];
 
 const activarOpciones = (opcion) => {
-  console.log(opcion);
   let optionsOptions: HTMLCollectionOf<Element> = document.getElementsByClassName(
     'option-options borders-left'
   );
+
+  optionSelected.update((n) => opcion);
 
   for (let i = 0; i < optionsOptions.length; i++) {
     optionsOptions[i].classList.remove('bg-primary');
   }
 
-  let supplierOption: Element = document.getElementById(opcion);
+  let optionOption: Element = document.getElementById(opcion);
 
-  supplierOption.classList.add('bg-primary');
+  optionOption.classList.add('bg-primary');
 };
 </script>
 
 <main class="bg-secundary roundear">
   <div class="options ">
     <div class="title-opcions">
-      <span class="font-comfortaa title-title-option"> Opciones </span>
+      <span class="font-comfortaa title-title-option"> Opciones</span>
     </div>
 
     {#each options as { nombre, img }, index}

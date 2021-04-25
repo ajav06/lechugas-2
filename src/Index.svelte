@@ -12,6 +12,7 @@ import Change from './components/Change.svelte';
 
   <div class="grid grid-cols-1 md:grid-cols-4 mx-5 md:mx-0 my-5">
     <Options />
+    <Consult />
     <Change />
     <Suppliers />
   </div>

@@ -1,4 +1,18 @@
-<main class="bg-primary md:col-span-2 place-content-center">
+<script lang="ts">
+import { optionSelected } from '../stores';
+
+$: if ($optionSelected === 'Consultar') {
+  let optionContent: Element = document.getElementById('Consultar-option');
+  optionContent.classList.remove('hidden');
+} else {
+  let optionContent: Element = document.getElementById('Consultar-option');
+  if (optionContent) optionContent.classList.add('hidden');
+}
+</script>
+
+<main
+  class="bg-primary md:col-span-2 place-content-center"
+  id="Consultar-option">
   <div class="font-comfortaa mt-4 md:0 info-tittle ">Consultar</div>
   <div class="font-comfortaa mt-6 md:mt-16 consult-text ">
     El precio de la lechuga es
