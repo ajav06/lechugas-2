@@ -1,29 +1,21 @@
-<main>
-  <div
-    class="grid grid-cols-3 md:grid-cols-1 bg-primary rounded-t-lg md:rounded-b-none md:rounded-l-lg">
-    <div
-      class="bg-background-title col-span-12 md:h-16 flex justify-center rounded-t-lg md:rounded-tl-lg md:rounded-tr-none">
-      <span
-        class="self-center text-title text-xl font-comfortaa-semibol tracking-wider">
-        Opciones
-      </span>
+<main class="bg-secundary roundear">
+  <div class="options ">
+    <div class="title-opcions">
+      <span class="font-comfortaa-semibol title-title-option"> Opciones </span>
     </div>
-    <div class=" md:col-span-12 md:h-16 flex justify-center borders-left">
-      <span class="self-center font-comfortaa-semibol tracking-wider">
-        Consultar
-      </span>
+    <div class="option-options borders-left ">
+      <img src="./images/lupa.svg" alt="" class="img-options" />
+      <span class="font-comfortaa-semibol text-options"> Consultar </span>
     </div>
-    <div
-      class=" md:col-span-12 md:h-16 bg-secundary flex justify-center borders-left">
-      <span class="self-center font-comfortaa-semibol tracking-wider">
-        Convertir
-      </span>
+    <div class="option-options borders-left">
+      <img src="./images/cambio.svg" alt="" class="img-options" />
+      <span class="font-comfortaa-semibol text-options"> Convertir </span>
     </div>
-    <div
-      class=" md:col-span-12 md:h-16 bg-secundary flex justify-center borders-left">
-      <span class="self-center font-comfortaa-semibol tracking-wider">
-        Historial
-      </span>
+    <div class="option-options borders-left">
+      <img src="./images/historial.svg" alt="" class="img-options" />
+      <span class="font-comfortaa-semibol text-options"> Historial </span>
     </div>
+    <div class="bg-secundary" />
+    <div />
   </div>
 </main>

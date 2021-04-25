@@ -33256,7 +33256,7 @@ video {
   border-left-width: 0px;
 }
 
-.options {
+.suppliers {
   --tw-bg-opacity: 1;
   background-color: rgba(157, 190, 163, var(--tw-bg-opacity));
   border-bottom-right-radius: 0.5rem;
@@ -33266,7 +33266,7 @@ video {
 }
 
 @media (min-width: 768px){
-  .options{
+  .suppliers{
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
     border-top-right-radius: 0.5rem;
@@ -33331,6 +33331,98 @@ video {
     justify-content: flex-start;
     height: 4rem;
     grid-column: span 12 / span 12;
+  }
+}
+
+.options {
+  --tw-bg-opacity: 1;
+  background-color: rgba(111, 159, 119, var(--tw-bg-opacity));
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+@media (min-width: 768px){
+  .options{
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.title-opcions {
+  --tw-bg-opacity: 1;
+  background-color: rgba(94, 141, 131, var(--tw-bg-opacity));
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  height: 4rem;
+  grid-column: span 12 / span 12;
+}
+
+@media (min-width: 768px){
+  .title-opcions{
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0.5rem;
+  }
+}
+
+.title-title-option {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgba(232, 174, 28, var(--tw-text-opacity));
+  align-self: center;
+  letter-spacing: 0.05em;
+}
+
+.option-options > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.option-options{
+  --tw-bg-opacity: 1;
+  background-color: rgba(157, 190, 163, var(--tw-bg-opacity));
+  display: flex;
+  justify-content: center;
+  grid-column: span 2 / span 2;
+}
+
+@media (min-width: 768px){
+  .option-options{
+    height: 4rem;
+    grid-column: span 12 / span 12;
+  }
+}
+
+.img-options {
+  align-self: center;
+  height: 2rem;
+}
+
+@media (min-width: 768px){
+  .img-options{
+    margin-left: 1.25rem;
+  }
+}
+
+.roundear {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+@media (min-width: 768px){
+  .roundear{
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
   }
 }
 

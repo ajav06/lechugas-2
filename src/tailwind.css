@@ -12,7 +12,7 @@
   @apply border border-t-0 border-l-0 border-grey;
 }
 
-.options {
+.suppliers {
   @apply grid grid-cols-7 md:grid-cols-1 bg-secundary rounded-b-lg md:rounded-b-none md:rounded-r-lg;
 }
 
@@ -34,4 +34,28 @@
 
 .options-suppliers {
   @apply md:col-span-12 md:h-16 flex justify-center md:justify-start space-x-2;
+}
+
+.options {
+  @apply grid grid-cols-6 md:grid-cols-1 bg-primary rounded-t-lg md:rounded-b-none md:rounded-l-lg;
+}
+
+.title-opcions {
+  @apply bg-background-title col-span-12 h-16 flex justify-center rounded-t-lg md:rounded-tl-lg md:rounded-tr-none;
+}
+
+.title-title-option {
+  @apply text-title text-xl text-options;
+}
+
+.option-options {
+  @apply col-span-2 md:col-span-12 md:h-16 flex justify-center space-x-2 bg-secundary;
+}
+
+.img-options {
+  @apply h-8 self-center md:ml-5;
+}
+
+.roundear {
+  @apply rounded-t-lg md:rounded-b-none md:rounded-l-lg;
 }
