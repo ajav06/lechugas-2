@@ -33239,6 +33239,13 @@ video {
   border-width: 1px;
   border-top-width: 0px;
   border-right-width: 0px;
+  border-bottom-width: 0px;
+}
+
+@media (min-width: 768px){
+  .borders-left{
+    border-bottom-width: 1px;
+  }
 }
 
 .borders-right {
@@ -33247,6 +33254,14 @@ video {
   border-width: 1px;
   border-top-width: 0px;
   border-left-width: 0px;
+}
+
+.borders-movil {
+  --tw-border-opacity: 1;
+  border-color: rgba(116, 104, 104, var(--tw-border-opacity));
+  border-width: 1px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
 }
 
 @media (min-width: 640px){

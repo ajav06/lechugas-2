@@ -5,9 +5,13 @@
 @tailwind utilities;
 
 .borders-left {
-  @apply border border-t-0 border-r-0 border-grey;
+  @apply border border-t-0 border-b-0 border-r-0 md:border-b border-grey;
 }
 
 .borders-right {
   @apply border border-t-0 border-l-0 border-grey;
+}
+
+.borders-movil {
+  @apply border border-t-0 border-b-0 border-grey;
 }
