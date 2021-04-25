@@ -59,44 +59,38 @@ const activarProveedor = (nombre) => {
 };
 </script>
 
-<main>
-  <div class="suppliers">
-    <div class="title-suppliers-1">
-      <span class="text-suppliers font-comfortaa font-bold"> Proveedores </span>
-    </div>
+<main class="suppliers">
+  <div class="title-suppliers-1">
+    <span class="text-suppliers font-comfortaa"> Proveedores </span>
+  </div>
 
-    {#each suppliers as { nombre, img }, index}
-      <button
-        id={nombre}
-        class="options-suppliers borders-right"
-        on:click={() => activarProveedor(nombre)}>
-        <img src={img} alt={nombre} class="img-suppliers" />
+  {#each suppliers as { nombre, img }, index}
+    <button
+      id={nombre}
+      class="options-suppliers borders-right"
+      on:click={() => activarProveedor(nombre)}>
+      <img src={img} alt={nombre} class="img-suppliers" />
 
-        <input
-          type="checkbox"
-          class="justify-center ml-0 mt-1 check-suppliers block md:hidden"
-          id={`check-${nombre}`}
-          on:click={() => activarProveedor(nombre)} />
-        <span class="text-options font-comfortaa font-ligth">
-          {nombre}
-        </span>
-      </button>
-
-      {#if index === 0}
-        <span on:click={activarProveedor(nombre)} class="hidden" />
-      {/if}
-    {:else}
-      <div class="options-suppliers borders-right">
-        <span class="text-options font-comfortaa font-ligth">
-          Cargando Proveedores...
-        </span>
-      </div>
-    {/each}
-
-    <div class="title-suppliers-2">
-      <span class="text-suppliers font-comfortaa font-ligth">
-        Proveedores
+      <input
+        type="checkbox"
+        class="justify-center ml-0 mt-1 check-suppliers block md:hidden"
+        id={`check-${nombre}`}
+        on:click={() => activarProveedor(nombre)} />
+      <span class="text-options font-comfortaa">
+        {nombre}
       </span>
+    </button>
+
+    {#if index === 0}
+      <span on:click={activarProveedor(nombre)} class="hidden" />
+    {/if}
+  {:else}
+    <div class="options-suppliers borders-right">
+      <span class="text-options font-comfortaa"> Cargando Proveedores... </span>
     </div>
+  {/each}
+
+  <div class="title-suppliers-2">
+    <span class="text-suppliers font-comfortaa"> Proveedores </span>
   </div>
 </main>
