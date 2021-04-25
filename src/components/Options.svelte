@@ -1,14 +1,26 @@
 <main>
-  <div class="grid grid-rows-1 ">
-    <div class="grid grid-cols-1 ">
-      <div class="bg-background-title col-span-12 h-10 flex justify-center ">
-        <span
-          class="text-title self-center font-comfortaa-semibold tracking-wider"
-          >Opciones</span>
-      </div>
-      <div class="bg-primary text-center ">Consultar</div>
-      <div class="bg-primary text-center">Convertir</div>
-      <div class="bg-primary text-center">Historial</div>
+  <div
+    class="grid grid-cols-4 md:grid-cols-1 bg-primary rounded-t-lg md:rounded-b-none md:rounded-l-lg">
+    <div
+      class="bg-background-title col-span-12 md:h-10 flex justify-center rounded-t-lg md:rounded-tl-lg md:rounded-tr-none">
+      <span
+        class="self-center text-title font-comfortaa-semibol tracking-wider">
+        Opciones
+      </span>
     </div>
+    <div class="md:col-span-12 md:h-10 flex justify-center borders-left">
+      <span class="self-center font-comfortaa-semibol tracking-wider">
+        Consultar
+      </span>
+    </div>
+    <div
+      class="md:col-span-12 md:h-10 bg-secundary flex justify-center borders-left">
+      Convertir
+    </div>
+    <div
+      class="md:col-span-12 md:h-10 bg-secundary flex justify-center borders-left">
+      Historial
+    </div>
+    <div class="md:col-span-12 md:h-10 bg-secundary flex justify-center" />
   </div>
 </main>

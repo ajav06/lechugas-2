@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
 
 /*! tailwindcss v2.1.2 | MIT License | https://tailwindcss.com */
 
@@ -33231,6 +33231,22 @@ video {
 
 .backdrop-sepia{
   --tw-backdrop-sepia: sepia(100%);
+}
+
+.borders-left {
+  --tw-border-opacity: 1;
+  border-color: rgba(116, 104, 104, var(--tw-border-opacity));
+  border-width: 1px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+}
+
+.borders-right {
+  --tw-border-opacity: 1;
+  border-color: rgba(116, 104, 104, var(--tw-border-opacity));
+  border-width: 1px;
+  border-top-width: 0px;
+  border-left-width: 0px;
 }
 
 @media (min-width: 640px){
