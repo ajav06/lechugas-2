@@ -27,6 +27,6 @@ class Dolar extends Model {
 
 db.link([Dolar])
 
-await db.sync({ drop: true })
+await db.sync({ drop: false })
 
 export { Dolar }

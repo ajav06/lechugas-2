@@ -1,11 +1,9 @@
 export const proveedorResource = (resource: any) => ({
-  id: resource._id,
-  name: resource.name,
-  type: resource.type,
-  price: resource.price,
-  createdAt: resource.createdAt,
-  finalitAt: resource.finalitAt,
-  status: resource.status
+  id: resource.id,
+  nombre: resource.nombre,
+  url: resource.url,
+  img: resource.img,
+  activo: resource.activo
 })
 
 export const proveedorlist = (resources: any) =>

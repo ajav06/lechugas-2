@@ -31,6 +31,6 @@ class Proveedor extends Model {
 
 db.link([Proveedor])
 
-await db.sync({ drop: true })
+await db.sync({ drop: false })
 
 export { Proveedor }
