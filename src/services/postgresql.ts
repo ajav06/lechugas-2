@@ -12,4 +12,4 @@ const db = await new Database(connector)
 
 console.log('Base de datos conectada')
 
-export default db
+export { db }

@@ -1,9 +1,10 @@
 import { Application } from 'https://deno.land/x/oak/mod.ts'
 import { Database } from 'https://deno.land/x/denodb/mod.ts'
-import db from '../services/postgresql.ts'
-import router from '../routes/routes.ts'
 
-class Server {
+import { db } from './postgresql.ts'
+import { router } from '../routes/index.ts'
+
+export class Server {
   app: Application
   db: Database
 
@@ -19,9 +20,7 @@ class Server {
   }
 
   listen() {
-    this.app.listen({ port: 8000 })
+    this.app.listen({ port: 8080 })
     console.log('Server running at http://localhost:8000')
   }
 }
-
-export default Server

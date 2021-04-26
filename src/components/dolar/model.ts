@@ -3,8 +3,8 @@ import {
   Model,
   Relationships
 } from 'https://deno.land/x/denodb/mod.ts'
-import Proveedor from '../proveedor/Proveedor.ts'
-import db from '../db/db.ts'
+import { db } from '../../services/postgresql.ts'
+import { Proveedor } from '../proveedor/model.ts'
 
 class Dolar extends Model {
   static table = 'dolares'
@@ -24,6 +24,7 @@ class Dolar extends Model {
     return this.hasOne(Proveedor)
   }
 }
+
 db.link([Dolar])
 
-export default Dolar
+export { Dolar }
