@@ -27,8 +27,10 @@ class Proveedor extends Model {
   }
 }
 
-Relationships.belongsTo(Proveedor, Dolar)
+// Relationships.belongsTo(Proveedor, Dolar)
 
 db.link([Proveedor])
+
+await db.sync({ drop: true })
 
 export { Proveedor }

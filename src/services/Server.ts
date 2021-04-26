@@ -21,6 +21,6 @@ export class Server {
 
   listen() {
     this.app.listen({ port: 8080 })
-    console.log('Server running at http://localhost:8000')
+    console.log('Server running at http://localhost:8080')
   }
 }

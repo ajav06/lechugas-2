@@ -4,7 +4,7 @@ default:
 	make dev
 
 dev:
-	denon run --allow-net $(ENTRY_POINT) 
+	denon run --allow-net --unstable $(ENTRY_POINT) 
 
 format:
 	deno fmt
