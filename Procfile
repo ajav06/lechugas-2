@@ -1,1 +1,1 @@
-web: denon run --unstable --allow-read --allow-net=:${PORT} ./src/mod.ts --port=${PORT}
+web: denon run --unstable --allow-read --allow-net=:${PORT} index.ts --port=${PORT}
