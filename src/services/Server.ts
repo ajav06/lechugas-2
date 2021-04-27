@@ -4,6 +4,12 @@ import opine, { serveStatic } from 'https://deno.land/x/opine@1.3.3/mod.ts'
 
 import { db } from './postgresql.ts'
 import { router } from '../routes/index.ts'
+import {
+  consultarDolarToday,
+  consultarYadio,
+  consultarLocalBitcoin,
+  consultarMonitorDolar
+} from '../components/dolar/controller.ts'
 
 export class Server {
   app: any
@@ -13,6 +19,10 @@ export class Server {
     this.app = opine()
     this.routes()
     this.db = db
+    consultarDolarToday()
+    consultarYadio()
+    consultarLocalBitcoin()
+    consultarMonitorDolar()
   }
 
   routes() {
