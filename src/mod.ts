@@ -1,4 +1,4 @@
-import { Server } from './services/server.ts'
+import { Server } from './services/Server.ts'
 
 const server = new Server()
 

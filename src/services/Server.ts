@@ -3,6 +3,12 @@ import { Database } from 'https://deno.land/x/denodb/mod.ts'
 
 import { db } from './postgresql.ts'
 import { router } from '../routes/index.ts'
+import {
+  consultarDolarToday,
+  consultarYadio,
+  consultarLocalBitcoin,
+  consultarMonitorDolar
+} from '../components/dolar/controller.ts'
 
 export class Server {
   app: Application
@@ -12,6 +18,10 @@ export class Server {
     this.app = new Application()
     this.routes()
     this.db = db
+    consultarDolarToday()
+    consultarYadio()
+    consultarLocalBitcoin()
+    consultarMonitorDolar()
   }
 
   routes() {

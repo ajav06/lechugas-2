@@ -31,7 +31,6 @@ export const consultarProveedor = async ({
 
     response.status = 200
     response.body = {
-      message: 'OK',
       data: proveedorResource(data)
     }
   } catch (error) {
