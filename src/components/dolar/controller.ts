@@ -11,15 +11,13 @@ import { Proveedor } from '../proveedor/model.ts'
 export const consultarDolarToday = async () => {
   //Extrae el precio de Dolar Today y de BCV
   try {
-    const data = await axiod.get(
+    const response = await axiod.get(
       'https://s3.amazonaws.com/dolartoday/data.json'
     )
-    console.log(
-      'DolarToday: ',
-      data.data.USD.transferencia,
-      '  BCV: ',
-      data.data.USD.sicad2
-    )
+
+    const data = response.data.USD
+
+    console.log('DolarToday: ', data.transferencia, '  BCV: ', data.sicad2)
   } catch (error) {
     console.log(error)
   }
@@ -27,8 +25,11 @@ export const consultarDolarToday = async () => {
 
 export const consultarYadio = async () => {
   try {
-    const data = await axiod.get('https://api.yadio.io/rate/VES/USD')
-    console.log('Yadio: ', data.data.rate)
+    const response = await axiod.get('https://api.yadio.io/rate/VES/USD')
+
+    const data = response.data.rate
+
+    console.log('Yadio: ', data)
   } catch (error) {
     console.log(error)
   }
@@ -36,8 +37,11 @@ export const consultarYadio = async () => {
 
 export const consultarLocalBitcoin = async () => {
   try {
-    const data = await axiod.get('https://api.bitcoinvenezuela.com/v2/')
-    console.log('LocalBitcoins: ', data.data.exchange_rates.USDVES)
+    const response = await axiod.get('https://api.bitcoinvenezuela.com/v2/')
+
+    const data = response.data.exchange_rates.USDVES
+
+    console.log('LocalBitcoins: ', data)
   } catch (error) {
     console.log(error)
   }
@@ -45,12 +49,15 @@ export const consultarLocalBitcoin = async () => {
 
 export const consultarMonitorDolar = async () => {
   try {
-    const data = await axiod.get('https://monitor-dolar.herokuapp.com/api/v1/')
-    const value = data.data.price
-      .toString()
-      .replace(/\./g, '')
-      .replace(',', '.')
-    console.log('MonitorDolar: ', parseFloat(value))
+    const response = await axiod.get(
+      'https://monitor-dolar.herokuapp.com/api/v1/'
+    )
+
+    const data = response.data.price
+
+    const price = data.toString().replace(/\./g, '').replace(',', '.')
+
+    console.log('MonitorDolar: ', parseFloat(price))
   } catch (error) {
     console.log(error)
   }
