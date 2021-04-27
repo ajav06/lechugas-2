@@ -1,44 +1,45 @@
 import { getProveedor, getProveedores } from './dao.ts'
 import { proveedorResource, proveedorlist } from './dto.ts'
 
-export const listaProveedores = async ({ response }: { response: any }) => {
+export const listaProveedores = async ({ res }: { res: any }) => {
   try {
     const data = await getProveedores()
 
-    response.status = 200
-    response.body = {
+    res.status = 200
+    res.send({
       data: proveedorlist(data)
-    }
+    })
   } catch (error) {
-    response.status = 500
-    response.body = {
+    console.log(res)
+    res.status = 500
+    res.send({
       message: 'SERVER ERROR',
       error: error.toString()
-    }
+    })
   }
 }
 
 export const consultarProveedor = async ({
-  response,
-  params
+  res,
+  req
 }: {
-  response: any
-  params: any
+  res: any
+  req: any
 }) => {
   try {
-    const id = params.id
+    const id = req.parms.id
     const data = await getProveedor(id)
 
-    response.status = 200
-    response.body = {
+    res.status = 200
+    res.send({
       message: 'OK',
       data: proveedorResource(data)
-    }
+    })
   } catch (error) {
-    response.status = 500
-    response.body = {
+    res.status = 500
+    res.send({
       message: 'SERVER ERROR',
       error: error.toString()
-    }
+    })
   }
 }

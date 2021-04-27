@@ -1,17 +1,14 @@
-import { Router } from 'https://deno.land/x/oak/mod.ts'
+// import { Router } from 'https://deno.land/x/oak/mod.ts'
+import { Router } from 'https://deno.land/x/opine@1.3.3/mod.ts'
 
-import {
-  listaProveedores,
-  consultarProveedor
-} from '../components/proveedor/controller.ts'
+import { proveedorRoutes } from '../components/proveedor/routes.ts'
 
 const router = new Router()
 
-router.get('/', (ctx) => {
-  ctx.response.body = 'Hello World!'
+router.get('/deno', function (req, res) {
+  res.send('Hello Deno')
 })
 
-router.get('/api/v1/proveedores/', listaProveedores)
-router.get('/api/v1/proveedor/:id/', consultarProveedor)
+router.use('/proveedores', proveedorRoutes)
 
 export { router }
