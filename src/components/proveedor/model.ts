@@ -1,9 +1,4 @@
-import {
-  DataTypes,
-  Model,
-  Relationships
-} from 'https://deno.land/x/denodb/mod.ts'
-import { db } from '../../services/postgresql.ts'
+import { DataTypes, Model } from 'https://deno.land/x/denodb/mod.ts'
 import { Dolar } from '../dolar/model.ts'
 
 class Proveedor extends Model {
@@ -16,21 +11,15 @@ class Proveedor extends Model {
       primaryKey: true,
       autoIncrement: true
     },
-    name: DataTypes.STRING,
+    nombre: DataTypes.STRING,
     url: DataTypes.STRING,
     img: DataTypes.STRING,
     activo: DataTypes.BOOLEAN
   }
 
-  static dolar() {
+  static dolares() {
     return this.hasMany(Dolar)
   }
 }
-
-// Relationships.belongsTo(Proveedor, Dolar)
-
-db.link([Proveedor])
-
-await db.sync()
 
 export { Proveedor }

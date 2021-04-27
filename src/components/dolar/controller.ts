@@ -1,5 +1,6 @@
 import axiod from 'https://deno.land/x/axiod/mod.ts'
 import { Proveedor } from '../proveedor/model.ts'
+import { addDolar } from './dao.ts'
 
 // const formatNumber = (num: Number) => {
 //   return num
@@ -16,6 +17,16 @@ export const consultarDolarToday = async () => {
     )
 
     const data = response.data.USD
+
+    // await addDolar({
+    //   precio: data.transferencia,
+    //   id_proveedor: 1
+    // })
+
+    // await addDolar({
+    //   precio: data.sicad2,
+    //   id_proveedor: 3
+    // })
 
     console.log('DolarToday: ', data.transferencia, '  BCV: ', data.sicad2)
   } catch (error) {
