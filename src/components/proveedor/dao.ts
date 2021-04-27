@@ -16,7 +16,7 @@ export const getProveedor = async (id: string | number) => {
 
 export const getProveedores = async () => {
   try {
-    const data = await Proveedor.all().orderBy('id')
+    const data = await Proveedor.orderBy('id').all()
     return data
   } catch (error) {
     throw error
