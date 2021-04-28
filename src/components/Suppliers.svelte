@@ -133,7 +133,7 @@ const activarProveedor = (id: number, nombre: string, url: string) => {
 
       <input
         type="checkbox"
-        class="justify-self-center ml-0 mt-1 md:mt-0  check-suppliers {$history
+        class="justify-self-center ml-0 mt-1 md:mt-0 self-center check-suppliers {$history
           ? ''
           : 'hidden'}"
         id={`check-${nombre}`}
