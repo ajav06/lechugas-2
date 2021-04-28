@@ -16,19 +16,19 @@ import { dolarResource } from './dto.ts'
 
 export const consultarPrecioProveedor = async ({
   res,
-  req
+  params
 }: {
   res: any
-  req: any
+  params: any
 }) => {
+  console.log(params)
   try {
-    const id = req.parms.id
+    const id = params.id
 
     const data = await getLastDolarByProveedor(id)
 
     res.status = 200
     res.send({
-      message: 'OK',
       data: dolarResource(data)
     })
   } catch (error) {
@@ -76,7 +76,7 @@ export const consultarYadio = async () => {
   try {
     const response = await axiod.get('https://api.yadio.io/rate/VES/USD')
 
-    const data = response.data.rate
+    const data = parseFloat(response.data.rate.toFixed(2))
 
     const last = await getLastDolarByProveedor(2)
 
@@ -122,7 +122,7 @@ export const consultarLocalBitcoin = async () => {
   try {
     const response = await axiod.get('https://api.bitcoinvenezuela.com/v2/')
 
-    const data = response.data.exchange_rates.USDVES
+    const data = parseFloat(response.data.exchange_rates.USDVES.toFixed(2))
 
     const last = await getLastDolarByProveedor(5)
 
@@ -141,37 +141,13 @@ export const consultarLocalBitcoin = async () => {
 
 export const consultaAutomatica = async () => {
   try {
-    let now: any = time().tz('America/Caracas').t
-    let hours: any = new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
-      now.getHours(),
-      now.getMinutes() + 10,
-      0,
-      0
-    )
-
-    let millisTill10: number = hours - now
-
-    if (millisTill10 < 0) {
-      hours = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate() + 1,
-        now.getHours(),
-        now.getMinutes() + 10,
-        0,
-        0
-      )
-      millisTill10 = hours - now
-    }
+    let tenMin: number = 600000
 
     setTimeout(function () {
       consultarYadio()
       consultarLocalBitcoin()
       consultaAutomatica()
-    }, millisTill10)
+    }, tenMin)
   } catch (error) {
     console.log(error)
   }

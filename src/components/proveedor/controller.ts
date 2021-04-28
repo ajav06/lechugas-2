@@ -21,13 +21,14 @@ export const listaProveedores = async ({ res }: { res: any }) => {
 
 export const consultarProveedor = async ({
   res,
-  req
+  params
 }: {
   res: any
-  req: any
+  params: any
 }) => {
+  console.log(params)
   try {
-    const id = req.parms.id
+    const id = params.id
     const data = await getProveedor(id)
 
     res.status = 200
