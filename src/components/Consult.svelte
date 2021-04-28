@@ -34,7 +34,7 @@ $: {
   {#if supplier && supplier.nombre !== 'Promedio'}
     <div class="flex justify-center">
       <a
-        class="font-comfortaa mt-10 text-fuente text-center"
+        class="font-comfortaa text-fuente text-center"
         target="_blank"
         href={supplier.url}>
         Fuente

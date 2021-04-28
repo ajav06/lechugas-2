@@ -69,7 +69,7 @@
 }
 
 .copy-btn {
-  @apply bg-secundary text-sub-title border-4 font-semibold text-center border-background-title rounded-lg px-2 py-1;
+  @apply bg-secundary text-sub-title border-4 font-semibold text-center border-background-title rounded-lg mb-5 px-2 py-1;
 }
 
 .text-fuente {
