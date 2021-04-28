@@ -9,9 +9,12 @@
 <script lang="ts">
 import { supplierSelected, history } from '../stores';
 
-let suppliers: Array<Object> = fetch(
-  'https://lechugas2.herokuapp.com/api/v1/proveedores/'
-);
+let suppliers: Array<Object> = [];
+
+fetch('https://lechugas2.herokuapp.com/api/v1/proveedores/')
+  .then((res) => res.json())
+  .then((res) => (suppliers = res.data))
+  .catch((e) => console.log(e));
 
 // let suppliers: Array<Object> = [
 //   {
@@ -117,6 +120,9 @@ const activarProveedor = (id: number, nombre: string, url: string) => {
     // }
   }
 };
+
+$: {
+}
 </script>
 
 <main class="suppliers">
