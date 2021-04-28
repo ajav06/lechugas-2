@@ -73,7 +73,7 @@
 }
 
 .text-fuente {
-  @apply text-base text-sub-title underline  font-semibold text-center;
+  @apply text-base text-sub-title underline mt-0 md:mt-8 font-semibold text-center;
 }
 
 .info-tittle {

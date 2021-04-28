@@ -9,44 +9,48 @@
 <script lang="ts">
 import { supplierSelected, history } from '../stores';
 
-let suppliers: Array<Object> = [
-  {
-    id: 0,
-    nombre: 'DolarToday',
-    img: './images/DolarToday.svg',
-    url: 'https://dolartoday.com/',
-  },
-  {
-    id: 1,
-    nombre: 'Yadio',
-    img: './images/yadio.svg',
-    url: 'https://yadio.io/',
-  },
-  {
-    id: 2,
-    nombre: 'BCV',
-    img: './images/BCV.svg',
-    url: 'http://www.bcv.org.ve/',
-  },
-  {
-    id: 3,
-    nombre: 'MonitorDolar',
-    img: './images/MonitorDolar.svg',
-    url: 'https://www.instagram.com/enparalelovzla/',
-  },
-  {
-    id: 4,
-    nombre: 'LocalBitcoins',
-    img: './images/LocalBitcoins.svg',
-    url: 'https://localbitcoins.com/',
-  },
-  {
-    id: 5,
-    nombre: 'Promedio',
-    img: './images/promedio.svg',
-    url: 'https://google.co.ve',
-  },
-];
+let suppliers: Array<Object> = fetch(
+  'https://lechugas2.herokuapp.com/api/v1/proveedores/'
+);
+
+// let suppliers: Array<Object> = [
+//   {
+//     id: 0,
+//     nombre: 'DolarToday',
+//     img: './images/DolarToday.svg',
+//     url: 'https://dolartoday.com/',
+//   },
+//   {
+//     id: 1,
+//     nombre: 'Yadio',
+//     img: './images/yadio.svg',
+//     url: 'https://yadio.io/',
+//   },
+//   {
+//     id: 2,
+//     nombre: 'BCV',
+//     img: './images/BCV.svg',
+//     url: 'http://www.bcv.org.ve/',
+//   },
+//   {
+//     id: 3,
+//     nombre: 'MonitorDolar',
+//     img: './images/MonitorDolar.svg',
+//     url: 'https://www.instagram.com/enparalelovzla/',
+//   },
+//   {
+//     id: 4,
+//     nombre: 'LocalBitcoins',
+//     img: './images/LocalBitcoins.svg',
+//     url: 'https://localbitcoins.com/',
+//   },
+//   {
+//     id: 5,
+//     nombre: 'Promedio',
+//     img: './images/promedio.svg',
+//     url: 'https://google.co.ve',
+//   },
+// ];
 
 let dolar: Array<Object> = [
   {
@@ -117,7 +121,7 @@ const activarProveedor = (id: number, nombre: string, url: string) => {
 
 <main class="suppliers">
   <div class="title-suppliers-1">
-    <span class="text-suppliers font-comfortaa"> Proveedores </span>
+    <span class="text-suppliers font-comfortaa"> Proveedores!!!! </span>
   </div>
 
   {#each suppliers as { nombre, img, id, url }, index}
