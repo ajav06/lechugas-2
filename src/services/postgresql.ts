@@ -1,4 +1,6 @@
 import { Database, PostgresConnector } from 'https://deno.land/x/denodb/mod.ts'
+import { Dolar } from '../components/dolar/model.ts'
+import { Proveedor } from '../components/proveedor/model.ts'
 
 const connector = new PostgresConnector({
   database: 'sriqxnky',
@@ -11,5 +13,9 @@ const connector = new PostgresConnector({
 const db = await new Database(connector)
 
 console.log('Base de datos conectada')
+
+db.link([Proveedor, Dolar])
+
+await db.sync()
 
 export { db }

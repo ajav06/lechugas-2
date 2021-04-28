@@ -1,5 +1,4 @@
 import { DataTypes, Model } from 'https://deno.land/x/denodb/mod.ts'
-import { db } from '../../services/postgresql.ts'
 import { Proveedor } from '../proveedor/model.ts'
 
 class Dolar extends Model {
@@ -7,22 +6,19 @@ class Dolar extends Model {
 
   static timestamps = true
 
-  static fields = {
+  static fields: any = {
     id: {
       primaryKey: true,
       autoIncrement: true
     },
-    precio: DataTypes.DECIMAL,
-    fecha: DataTypes.TIMESTAMP
+    precio: { type: DataTypes.DECIMAL, precision: 2 },
+    fecha: DataTypes.TIMESTAMP,
+    id_proveedor: DataTypes.INTEGER
   }
 
   static proveedor() {
     return this.hasOne(Proveedor)
   }
 }
-
-db.link([Dolar])
-
-await db.sync()
 
 export { Dolar }

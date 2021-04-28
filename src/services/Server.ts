@@ -1,6 +1,7 @@
 // import { Application } from 'https://deno.land/x/oak/mod.ts'
 import { Database } from 'https://deno.land/x/denodb/mod.ts'
 import opine, { serveStatic } from 'https://deno.land/x/opine@1.3.3/mod.ts'
+import { opineCors } from 'https://deno.land/x/cors/mod.ts'
 import { parse } from 'https://deno.land/std/flags/mod.ts'
 import { opineCors } from 'https://deno.land/x/cors/mod.ts'
 
@@ -10,7 +11,9 @@ import {
   consultarDolarToday,
   consultarYadio,
   consultarLocalBitcoin,
-  consultarMonitorDolar
+  consultarMonitorDolar,
+  consultaAutomatica,
+  consultaAutomaticaDiaria
 } from '../components/dolar/controller.ts'
 
 const { args } = Deno
@@ -30,6 +33,8 @@ export class Server {
     consultarYadio()
     consultarLocalBitcoin()
     consultarMonitorDolar()
+    consultaAutomatica()
+    consultaAutomaticaDiaria()
   }
 
   routes() {
