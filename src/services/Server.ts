@@ -12,7 +12,8 @@ import {
   consultarLocalBitcoin,
   consultarMonitorDolar,
   consultaAutomatica,
-  consultaAutomaticaDiaria
+  consultaAutomaticaDiaria,
+  initPrice
 } from '../components/dolar/controller.ts'
 
 const { args } = Deno
@@ -34,6 +35,7 @@ export class Server {
     consultarMonitorDolar()
     consultaAutomatica()
     consultaAutomaticaDiaria()
+    // initPrice()
   }
 
   routes() {

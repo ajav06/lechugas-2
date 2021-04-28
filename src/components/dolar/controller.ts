@@ -214,3 +214,30 @@ export const consultaAutomaticaDiaria = async () => {
     console.log(error)
   }
 }
+
+export const initPrice = async () => {
+  try {
+    await addDolar({
+      precio: 0,
+      proveedor: 1
+    })
+    await addDolar({
+      precio: 0,
+      proveedor: 2
+    })
+    await addDolar({
+      precio: 0,
+      proveedor: 3
+    })
+    await addDolar({
+      precio: 0,
+      proveedor: 4
+    })
+    await addDolar({
+      precio: 0,
+      proveedor: 5
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
