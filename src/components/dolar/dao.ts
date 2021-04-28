@@ -17,13 +17,11 @@ export const getDolar = async (id: string | number) => {
 
 export const addDolar = async (value: any) => {
   try {
-    const fecha = time().tz('America/Caracas')
-    const date = new Date(fecha.toString())
-    console.log(fecha, date)
+    const fecha = time().tz('America/Caracas').toString()
 
     const data = await Dolar.create({
       precio: value.precio,
-      fecha: date,
+      fecha: fecha,
       id_proveedor: value.proveedor
     })
 
@@ -36,7 +34,7 @@ export const addDolar = async (value: any) => {
 export const getLastDolarByProveedor = async (id: string | number) => {
   try {
     const data: any = await Dolar.where('id_proveedor', id)
-      .orderBy('created_at', 'desc')
+      .orderBy('fecha', 'desc')
       .limit(1)
       .get()
 

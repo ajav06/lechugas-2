@@ -11,6 +11,7 @@ import {
   consultarYadio,
   consultarLocalBitcoin,
   consultarMonitorDolar,
+  consultaAutomatica,
   consultaAutomaticaDiaria
 } from '../components/dolar/controller.ts'
 
@@ -31,6 +32,7 @@ export class Server {
     consultarYadio()
     consultarLocalBitcoin()
     consultarMonitorDolar()
+    consultaAutomatica()
     consultaAutomaticaDiaria()
   }
 
