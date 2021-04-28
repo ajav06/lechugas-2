@@ -1,6 +1,10 @@
 import axiod from 'https://deno.land/x/axiod/mod.ts'
 import { Proveedor } from '../proveedor/model.ts'
-import { addDolar } from './dao.ts'
+import { addDolar, getLastDolarByProveedor } from './dao.ts'
+import {
+  time,
+  timezone
+} from 'https://denopkg.com/burhanahmeed/time.ts@v2.0.1/mod.ts'
 
 // const formatNumber = (num: Number) => {
 //   return num
@@ -20,12 +24,12 @@ export const consultarDolarToday = async () => {
 
     // await addDolar({
     //   precio: data.transferencia,
-    //   id_proveedor: 1
+    //   proveedor: 1
     // })
 
     // await addDolar({
     //   precio: data.sicad2,
-    //   id_proveedor: 3
+    //   proveedor: 3
     // })
 
     console.log('DolarToday: ', data.transferencia, '  BCV: ', data.sicad2)
@@ -69,6 +73,18 @@ export const consultarMonitorDolar = async () => {
     const price = data.toString().replace(/\./g, '').replace(',', '.')
 
     console.log('MonitorDolar: ', parseFloat(price))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const consultaAutomaticaDiaria = async () => {
+  try {
+    const fecha = time().tz('America/Caracas').t
+
+    const lastDolarToday: any = await getLastDolarByProveedor(1)
+
+    console.log(lastDolarToday, fecha)
   } catch (error) {
     console.log(error)
   }
