@@ -66,6 +66,7 @@ export const getLastTenDaysByProveedor = async (id: number | string) => {
     const fecha = time().tz('America/Caracas').t
 
     let historial: number[] = []
+    let fechas: string[] = []
 
     for (let index: number = 10; -1 < index; index--) {
       const fechaI = new Date(
@@ -81,11 +82,16 @@ export const getLastTenDaysByProveedor = async (id: number | string) => {
       const result = await client.queryObject(
         `SELECT "precio" FROM "public"."dolares" where id_proveedor=${id} and fecha between '${rangoI}' and '${rangoF}' ORDER BY fecha DESC limit 1`
       )
-      result.rows.forEach((item: any) =>
+      result.rows.forEach((item: any) => {
         historial.push(parseFloat(item.precio))
-      )
+        fechas.push(rangoI)
+      })
     }
-    return historial
+
+    return {
+      fechas: fechas,
+      precios: historial
+    }
   } catch (error) {
     throw error
   }

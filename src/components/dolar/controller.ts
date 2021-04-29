@@ -1,7 +1,11 @@
 import axiod from 'https://deno.land/x/axiod/mod.ts'
 import { time } from 'https://denopkg.com/burhanahmeed/time.ts@v2.0.1/mod.ts'
 
-import { addDolar, getLastDolarByProveedor } from './dao.ts'
+import {
+  addDolar,
+  getLastDolarByProveedor,
+  getLastTenDaysByProveedor
+} from './dao.ts'
 import { dolarResource } from './dto.ts'
 
 // const formatNumber = (num: Number) => {
@@ -18,7 +22,6 @@ export const consultarPrecioProveedor = async ({
   res: any
   params: any
 }) => {
-  console.log(params)
   try {
     const id = params.id
 
@@ -27,6 +30,31 @@ export const consultarPrecioProveedor = async ({
     res.status = 200
     res.send({
       data: dolarResource(data)
+    })
+  } catch (error) {
+    res.status = 500
+    res.send({
+      message: 'SERVER ERROR',
+      error: error.toString()
+    })
+  }
+}
+
+export const consultarHistorialProveedor = async ({
+  res,
+  params
+}: {
+  res: any
+  params: any
+}) => {
+  try {
+    const id = params.id
+
+    const data = await getLastTenDaysByProveedor(id)
+
+    res.status = 200
+    res.send({
+      data: data
     })
   } catch (error) {
     res.status = 500
@@ -169,7 +197,7 @@ export const calcularPromedio = async () => {
 
 export const consultaAutomatica = async () => {
   try {
-    let tenMin: number = 600000
+    let tenMin: number = 900000
 
     setTimeout(function () {
       consultarYadio()
