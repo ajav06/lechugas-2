@@ -33,10 +33,10 @@ export class Server {
     this.routes()
     this.db = db
     this.db2 = client
-    consultarDolarToday()
-    consultarYadio()
-    consultarLocalBitcoin()
-    consultarMonitorDolar()
+    // consultarDolarToday()
+    // consultarYadio()
+    // consultarLocalBitcoin()
+    // consultarMonitorDolar()
     consultaAutomatica()
     consultaAutomaticaDiaria()
     consultaAutomaticaDiaria2()
