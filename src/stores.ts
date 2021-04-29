@@ -5,3 +5,7 @@ export const optionSelected = writable('');
 export const supplierSelected = writable(null);
 
 export const history = writable(false);
+
+export const urlBase = writable('https://lechugas2.herokuapp.com/api/v1');
+
+export const copy = writable(false);

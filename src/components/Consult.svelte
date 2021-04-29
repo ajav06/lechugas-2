@@ -1,7 +1,56 @@
 <script lang="ts">
-import { optionSelected, supplierSelected } from '../stores';
+import { optionSelected, supplierSelected, copy } from '../stores';
+import Suppliers from './Suppliers.svelte';
 
-let supplier: object;
+let supplier: any;
+
+const formatNumber = (num: Number) => {
+  return num
+    .toString()
+    .replace('.', ',')
+    .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+};
+
+const formatDate = (date: string | Date) => {
+  let options: object = {
+    timeZone: 'America/Caracas',
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  };
+  return new Date(date).toLocaleString('es-VE', options);
+};
+
+const formatHour = (date: string | Date) => {
+  let options: object = {
+    timeZone: 'America/Caracas',
+    hour: 'numeric',
+    minute: 'numeric',
+  };
+  return new Date(
+    0,
+    0,
+    0,
+    date.getHours() + 4,
+    date.getMinutes()
+  ).toLocaleString('es-VE', options);
+};
+
+const copyClipboard = () => {
+  /* Get the text field */
+  const el = document.createElement('textarea');
+  el.value = supplier.precio;
+  el.setAttribute('readonly', '');
+  el.style.position = 'absolute';
+  el.style.left = '-9999px';
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+
+  copy.set(true);
+};
 
 $: {
   if ($optionSelected === 'Consultar') {
@@ -24,12 +73,20 @@ $: {
     El precio de la lechuga es
   </div>
   <div class="text-4xl text-price font-comfortaa font-bold text-center mt-10">
-    {supplier ? supplier.precio : 'Cargando..'} BsS
+    {supplier ? formatNumber(supplier.precio) : 'Cargando..'} BsS
   </div>
-  <div class="font-comfortaa mt-10 info-generic-text">11 de abril del 2021</div>
-  <div class="font-comfortaa mt-5 info-generic-text">6:00 pm</div>
+  <div class="font-comfortaa mt-10 info-generic-text">
+    {supplier ? formatDate(supplier.fecha) : '11 de abril del 2021'}
+  </div>
+  <div class="font-comfortaa mt-5 info-generic-text">
+    {supplier ? formatHour(new Date(supplier.fecha)) : '6:00 pm'}
+  </div>
   <div class="flex justify-center">
-    <button class="font-comfortaa mt-10 copy-btn"> Copiar </button>
+    <button
+      class="font-comfortaa mt-10 copy-btn"
+      on:click={() => copyClipboard()}>
+      Copiar
+    </button>
   </div>
   {#if supplier && supplier.nombre !== 'Promedio'}
     <div class="flex justify-center">

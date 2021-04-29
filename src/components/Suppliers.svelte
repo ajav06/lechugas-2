@@ -7,53 +7,21 @@
 </style>
 
 <script lang="ts">
-import { supplierSelected, history } from '../stores';
+import { supplierSelected, history, urlBase } from '../stores';
 
-let suppliers: Array<Object> = [];
+let suppliers: any[] = [];
 
-fetch('https://lechugas2.herokuapp.com/api/v1/proveedores/')
+fetch(`${$urlBase}/proveedores/`)
   .then((res) => res.json())
   .then((res) => (suppliers = res.data))
   .catch((e) => console.log(e));
 
-// let suppliers: Array<Object> = [
-//   {
-//     id: 0,
-//     nombre: 'DolarToday',
-//     img: './images/DolarToday.svg',
-//     url: 'https://dolartoday.com/',
-//   },
-//   {
-//     id: 1,
-//     nombre: 'Yadio',
-//     img: './images/yadio.svg',
-//     url: 'https://yadio.io/',
-//   },
-//   {
-//     id: 2,
-//     nombre: 'BCV',
-//     img: './images/BCV.svg',
-//     url: 'http://www.bcv.org.ve/',
-//   },
-//   {
-//     id: 3,
-//     nombre: 'MonitorDolar',
-//     img: './images/MonitorDolar.svg',
-//     url: 'https://www.instagram.com/enparalelovzla/',
-//   },
-//   {
-//     id: 4,
-//     nombre: 'LocalBitcoins',
-//     img: './images/LocalBitcoins.svg',
-//     url: 'https://localbitcoins.com/',
-//   },
-//   {
-//     id: 5,
-//     nombre: 'Promedio',
-//     img: './images/promedio.svg',
-//     url: 'https://google.co.ve',
-//   },
-// ];
+const consultarPrecio = (id: number | string) => {
+  return fetch(`${$urlBase}/dolares/${id}`)
+    .then((res) => res.json())
+    .then((res) => res.data)
+    .catch((e) => console.log(e));
+};
 
 let dolar: Array<Object> = [
   {
@@ -88,9 +56,10 @@ let dolar: Array<Object> = [
   },
 ];
 
-const activarProveedor = (id: number, nombre: string, url: string) => {
-  let seleted = dolar.find((i) => i.nombre === nombre);
+const activarProveedor = async (id: number, nombre: string, url: string) => {
+  let seleted: any = await consultarPrecio(id);
   seleted.url = url;
+  seleted.nombre = nombre;
   supplierSelected.set(seleted);
 
   let suppliersOptions: HTMLCollectionOf<Element> = document.getElementsByClassName(
@@ -122,15 +91,17 @@ const activarProveedor = (id: number, nombre: string, url: string) => {
 };
 
 $: {
+  if (suppliers.length > 0)
+    activarProveedor(suppliers[0].id, suppliers[0].nombre, suppliers[0].url);
 }
 </script>
 
 <main class="suppliers">
   <div class="title-suppliers-1">
-    <span class="text-suppliers font-comfortaa"> Proveedores!!!! </span>
+    <span class="text-suppliers font-comfortaa"> Proveedores </span>
   </div>
 
-  {#each suppliers as { nombre, img, id, url }, index}
+  {#each suppliers as { nombre, img, id, url }}
     <button
       id={nombre}
       class="options-suppliers borders-right"
@@ -150,7 +121,7 @@ $: {
         on:click={() => activarProveedor(id, nombre, url)} />
     </button>
 
-    {#if index === 0}
+    {#if id === 1}
       <span on:click={activarProveedor(id, nombre, url)} class="hidden" />
     {/if}
   {:else}
