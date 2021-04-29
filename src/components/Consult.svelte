@@ -90,6 +90,7 @@ $: {
     <button
       class="font-comfortaa mt-10 copy-btn"
       on:click={() => copyClipboard()}>
+      <img src="./images/copy-regular.png" alt="Copiar" class="w-8 md:w-8" />
       Copiar
     </button>
   </div>
