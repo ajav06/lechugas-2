@@ -13,7 +13,7 @@ install:
 	deno install --unstable --allow-read --allow-run -f https://deno.land/x/denon/denon.ts;
 
 run:
-	denon run --allow-net --unstable $(ENTRY_POINT) 
+	denon run --unstable --allow-read --allow-net  $(ENTRY_POINT) 
 
 test:
 	deno test

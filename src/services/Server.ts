@@ -1,10 +1,11 @@
 // import { Application } from 'https://deno.land/x/oak/mod.ts'
 import { Database } from 'https://deno.land/x/denodb/mod.ts'
+import { Client } from 'https://deno.land/x/postgres/mod.ts'
 import opine, { serveStatic } from 'https://deno.land/x/opine@1.3.3/mod.ts'
 import { opineCors } from 'https://deno.land/x/cors/mod.ts'
 import { parse } from 'https://deno.land/std/flags/mod.ts'
 
-import { db } from './postgresql.ts'
+import { db, client } from './postgresql.ts'
 import { router } from '../routes/index.ts'
 import {
   consultarDolarToday,
@@ -13,6 +14,7 @@ import {
   consultarMonitorDolar,
   consultaAutomatica,
   consultaAutomaticaDiaria,
+  consultaAutomaticaDiaria2,
   initPrice
 } from '../components/dolar/controller.ts'
 
@@ -24,17 +26,20 @@ const port = argPort ? Number(argPort) : DEFAULT_PORT
 export class Server {
   app: any
   db: Database
+  db2: Client
 
   constructor() {
     this.app = opine()
     this.routes()
     this.db = db
+    this.db2 = client
     consultarDolarToday()
     consultarYadio()
     consultarLocalBitcoin()
     consultarMonitorDolar()
     consultaAutomatica()
     consultaAutomaticaDiaria()
+    consultaAutomaticaDiaria2()
     // initPrice()
   }
 

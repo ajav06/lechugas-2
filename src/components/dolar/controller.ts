@@ -1,8 +1,5 @@
 import axiod from 'https://deno.land/x/axiod/mod.ts'
-import {
-  time,
-  timezone
-} from 'https://denopkg.com/burhanahmeed/time.ts@v2.0.1/mod.ts'
+import { time } from 'https://denopkg.com/burhanahmeed/time.ts@v2.0.1/mod.ts'
 
 import { addDolar, getLastDolarByProveedor } from './dao.ts'
 import { dolarResource } from './dto.ts'
@@ -52,12 +49,13 @@ export const consultarDolarToday = async () => {
     const lastDT = await getLastDolarByProveedor(1)
     const lastBCV = await getLastDolarByProveedor(3)
 
-    if (lastDT.precio != data.transferencia)
+    if (lastDT.precio != data.transferencia) {
       await addDolar({
         precio: data.transferencia,
         proveedor: 1
       })
-    else console.log('No hubo actualizacion de DolarToday')
+      calcularPromedio()
+    } else console.log('No hubo actualizacion de DolarToday')
 
     if (lastBCV.precio != data.sicad2)
       await addDolar({
@@ -80,12 +78,13 @@ export const consultarYadio = async () => {
 
     const last = await getLastDolarByProveedor(2)
 
-    if (last.precio != data)
+    if (last.precio != data) {
       await addDolar({
         precio: data,
         proveedor: 2
       })
-    else console.log('No hubo actualizacion de Yadio')
+      calcularPromedio()
+    } else console.log('No hubo actualizacion de Yadio')
 
     console.log('Yadio: ', data)
   } catch (error) {
@@ -105,12 +104,13 @@ export const consultarMonitorDolar = async () => {
 
     const last = await getLastDolarByProveedor(4)
 
-    if (last.precio != price)
+    if (last.precio != price) {
       await addDolar({
         precio: parseFloat(price),
         proveedor: 4
       })
-    else console.log('No hubo actualizacion de MonitorDolar')
+      calcularPromedio()
+    } else console.log('No hubo actualizacion de MonitorDolar')
 
     console.log('MonitorDolar: ', parseFloat(price))
   } catch (error) {
@@ -126,14 +126,42 @@ export const consultarLocalBitcoin = async () => {
 
     const last = await getLastDolarByProveedor(5)
 
-    if (last.precio != data)
+    if (last.precio != data) {
       await addDolar({
         precio: data,
         proveedor: 5
       })
-    else console.log('No hubo actualizacion de LocalBitcoins')
+      calcularPromedio()
+    } else console.log('No hubo actualizacion de LocalBitcoins')
 
     console.log('LocalBitcoins: ', data)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const calcularPromedio = async () => {
+  try {
+    const DT = await getLastDolarByProveedor(1)
+    const YD = await getLastDolarByProveedor(2)
+    const BC = await getLastDolarByProveedor(3)
+    const MT = await getLastDolarByProveedor(4)
+    const LC = await getLastDolarByProveedor(5)
+
+    let promedio: number =
+      (parseFloat(DT.precio) +
+        parseFloat(YD.precio) +
+        parseFloat(BC.precio) +
+        parseFloat(MT.precio) +
+        parseFloat(LC.precio)) /
+      5
+
+    promedio = parseFloat(promedio.toFixed(2))
+    await addDolar({
+      precio: promedio,
+      proveedor: 6
+    })
+    console.log('Promedio: ', promedio)
   } catch (error) {
     console.log(error)
   }
@@ -174,6 +202,44 @@ export const consultaAutomaticaDiaria = async () => {
         now.getMonth(),
         now.getDate() + 1,
         5,
+        10,
+        0,
+        0
+      )
+      millisTill10 = hours - now
+    }
+
+    setTimeout(function () {
+      consultarDolarToday()
+      consultarMonitorDolar()
+      consultaAutomaticaDiaria()
+    }, millisTill10)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const consultaAutomaticaDiaria2 = async () => {
+  try {
+    let now: any = time().tz('America/Caracas').t
+    let hours: any = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      9,
+      10,
+      0,
+      0
+    )
+
+    let millisTill10: number = hours - now
+
+    if (millisTill10 < 0) {
+      hours = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate() + 1,
+        9,
         10,
         0,
         0
