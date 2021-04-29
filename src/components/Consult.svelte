@@ -19,7 +19,13 @@ const formatDate = (date: string | Date) => {
     month: 'long',
     day: 'numeric',
   };
-  return new Date(date).toLocaleString('es-VE', options);
+  return new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate(),
+    date.getHours() + 4,
+    date.getMinutes()
+  ).toLocaleString('es-Ve', options);
 };
 
 const formatHour = (date: string | Date) => {
@@ -76,10 +82,10 @@ $: {
     {supplier ? formatNumber(supplier.precio) : 'Cargando..'} BsS
   </div>
   <div class="font-comfortaa mt-10 info-generic-text">
-    {supplier ? formatDate(supplier.fecha) : '11 de abril del 2021'}
+    {supplier ? formatDate(new Date(supplier.fecha)) : '- de - del -'}
   </div>
   <div class="font-comfortaa mt-5 info-generic-text">
-    {supplier ? formatHour(new Date(supplier.fecha)) : '6:00 pm'}
+    {supplier ? formatHour(new Date(supplier.fecha)) : '-:- pm'}
   </div>
   <div class="flex justify-center">
     <button
