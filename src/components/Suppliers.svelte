@@ -7,9 +7,16 @@
 </style>
 
 <script lang="ts">
-import { supplierSelected, history, urlBase } from '../stores';
+import { supplierSelected, history, urlBase, dataSuppliers } from '../stores';
 
 let suppliers: any[] = [];
+
+let data: any = {
+  // A labels array that can contain any sort of values
+  labels: [],
+  // Our series array that contains series objects or in this case series data arrays
+  series: [[], [], [], [], [], []],
+};
 
 fetch(`${$urlBase}/proveedores/`)
   .then((res) => res.json())
@@ -23,38 +30,30 @@ const consultarPrecio = (id: number | string) => {
     .catch((e) => console.log(e));
 };
 
-let dolar: Array<Object> = [
-  {
-    nombre: 'DolarToday',
-    precio: '2456123,04',
-    fecha: new Date(),
-  },
-  {
-    nombre: 'Yadio',
-    precio: '2456223,04',
-    fecha: new Date(),
-  },
-  {
-    nombre: 'BCV',
-    precio: '2456323,04',
-    fecha: new Date(),
-  },
-  {
-    nombre: 'MonitorDolar',
-    precio: '2456423,04',
-    fecha: new Date(),
-  },
-  {
-    nombre: 'LocalBitcoins',
-    precio: '2456523,04',
-    fecha: new Date(),
-  },
-  {
-    nombre: 'Promedio',
-    precio: '2456623,04',
-    fecha: new Date(),
-  },
-];
+const consultarHistorial = async (id: number | string) => {
+  return fetch(`${$urlBase}/dolares/historial/${id}`)
+    .then((res) => res.json())
+    .then((res) => res.data)
+    .catch((e) => console.log(e));
+};
+
+const asignarLabels = async (id: number | string) => {
+  let response = await consultarHistorial(id);
+  data.labels = response.fechas;
+};
+
+const crearGrafica = async (id: number) => {
+  if (data.series[id - 1].length > 0) {
+    console.log('sin datos...');
+    data.series[id - 1] = [];
+    console.log('arreglo vacio:', data.series[id - 1]);
+  } else {
+    let response = await consultarHistorial(id);
+    data.series[id - 1] = [...new Set(response.precios.map((i: any) => i))];
+    console.log('lo llena', data.series[id - 1]);
+    console.log('data', data);
+  }
+};
 
 const activarProveedor = async (id: number, nombre: string, url: string) => {
   let seleted: any = await consultarPrecio(id);
@@ -77,7 +76,12 @@ const activarProveedor = async (id: number, nombre: string, url: string) => {
     let supplierOptionCheck: Element = document.getElementById(
       `check-${nombre}`
     );
+
     supplierOptionCheck.checked = !supplierOptionCheck.checked;
+
+    asignarLabels(id);
+    crearGrafica(id);
+    dataSuppliers.set(data);
 
     let suppliersOptionsChecks: HTMLCollectionOf<Element> = document.getElementsByClassName(
       'check-suppliers'
@@ -88,6 +92,14 @@ const activarProveedor = async (id: number, nombre: string, url: string) => {
     //     console.log(suppliersOptionsChecks[i]);
     // }
   }
+};
+
+const checkbox = async (nombre: string) => {
+  let supplierOptionCheck: Element = document.getElementById(`check-${nombre}`);
+  supplierOptionCheck.checked = !supplierOptionCheck.checked;
+  //   let suppliersOptionsChecks: HTMLCollectionOf<Element> = document.getElementsByClassName(
+  //     'check-suppliers'
+  //   );
 };
 
 $: {
@@ -118,7 +130,7 @@ $: {
           ? ''
           : 'hidden'}"
         id={`check-${nombre}`}
-        on:click={() => activarProveedor(id, nombre, url)} />
+        on:click={() => checkbox(nombre)} />
     </button>
 
     {#if id === 1}

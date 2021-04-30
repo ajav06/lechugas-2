@@ -1,25 +1,5 @@
 <script lang="ts">
-import { optionSelected, supplierSelected } from '../stores';
-let data: object = {
-  // A labels array that can contain any sort of values
-  labels: [
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thu',
-    'Fri',
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thu',
-    'Fri',
-  ],
-  // Our series array that contains series objects or in this case series data arrays
-  series: [
-    [5, 2, 4, 2, 0, 3, 2, 5, 2, 1],
-    [3, 2, 5, 2, 1, 5, 2, 4, 2, 0],
-  ],
-};
+import { optionSelected, supplierSelected, dataSuppliers } from '../stores';
 
 let options: object = {
   // // Don't draw the line chart points
@@ -56,15 +36,25 @@ $: {
   if ($optionSelected === 'Historial') {
     let optionContent: Element = document.getElementById('Historial-option');
     optionContent.classList.remove('hidden');
-    setTimeout(() => {
-      new Chartist.Line('.ct-chart', data, options);
-    }, 100);
+    // setTimeout(() => {
+    //   new Chartist.Line('.ct-chart', data, options);
+    // }, 100);
   } else {
     let optionContent: Element = document.getElementById('Historial-option');
     if (optionContent) optionContent.classList.add('hidden');
   }
 
   if ($supplierSelected) supplier = $supplierSelected;
+
+  if ($dataSuppliers) {
+    let data: any = $dataSuppliers;
+
+    setTimeout(() => {
+      new Chartist.Line('.ct-chart', data, options);
+    }, 1000);
+
+    console.log('Este es:', data);
+  }
 }
 </script>
 

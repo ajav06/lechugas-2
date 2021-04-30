@@ -88,9 +88,13 @@ $: {
   </div>
   <div class="flex justify-center">
     <button
-      class="font-comfortaa mt-10 copy-btn"
+      class="font-comfortaa mt-10 copy-btn flex"
       on:click={() => copyClipboard()}>
-      <img src="./images/copy-regular.png" alt="Copiar" class="w-8 md:w-8" />
+      <img
+        src="./images/copy-regular.svg"
+        alt="Copiar"
+        class="w-5 mr-2"
+        style="color: aqua;" />
       Copiar
     </button>
   </div>
