@@ -10,4 +10,7 @@ export const urlBase = writable('https://lechugas2.herokuapp.com/api/v1');
 
 export const copy = writable(false);
 
-export const dataSuppliers = writable(null);
+export const dataSuppliers = writable({
+  labels: [],
+  series: [[], [], [], [], [], []],
+});

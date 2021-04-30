@@ -1,34 +1,28 @@
 <script lang="ts">
 import { optionSelected, supplierSelected, dataSuppliers } from '../stores';
 
+// let resetFnc: any;
+// const onZoom = (chart, reset) => {
+//   resetFnc = reset;
+// };
 let options: object = {
-  // // Don't draw the line chart points
-  // showPoint: false,
-  // // Disable line smoothing
-  // lineSmooth: false,
-  // // X-Axis specific configuration
-  // axisX: {
-  //   // We can disable the grid for this axis
-  //   showGrid: false,
-  //   // and also don't show the label
-  //   showLabel: false
-  // },
-  // Y-Axis specific configuration
   axisY: {
-    // Lets offset the chart a bit from the labels
     offset: 60,
-    // The label interpolation function enables you to modify the values
-    // used for the labels on each axis. Here we are converting the
-    // values into million pound.
-    labelInterpolationFnc: function (value) {
-      return value + ' BsS';
+    labelInterpolationFnc: (value: number) => {
+      let aux = value.toString();
+
+      return aux.substring(0, aux.length - 3) + ' BsS';
     },
   },
+  plugins: [
+    Chartist.plugins.tooltip(),
+    Chartist.plugins.zoom({
+      onZoom: function (chart, reset) {
+        storeReset(reset);
+      },
+    }),
+  ],
 };
-
-// Create a new line chart object where as first parameter we pass in a selector
-// that is resolving to our chart container element. The Second parameter
-// is the actual data object.
 
 let supplier: object;
 
@@ -52,8 +46,6 @@ $: {
     setTimeout(() => {
       new Chartist.Line('.ct-chart', data, options);
     }, 1000);
-
-    console.log('Este es:', data);
   }
 }
 </script>

@@ -12,9 +12,7 @@ import { supplierSelected, history, urlBase, dataSuppliers } from '../stores';
 let suppliers: any[] = [];
 
 let data: any = {
-  // A labels array that can contain any sort of values
   labels: [],
-  // Our series array that contains series objects or in this case series data arrays
   series: [[], [], [], [], [], []],
 };
 
@@ -44,14 +42,10 @@ const asignarLabels = async (id: number | string) => {
 
 const crearGrafica = async (id: number) => {
   if (data.series[id - 1].length > 0) {
-    console.log('sin datos...');
     data.series[id - 1] = [];
-    console.log('arreglo vacio:', data.series[id - 1]);
   } else {
     let response = await consultarHistorial(id);
     data.series[id - 1] = [...new Set(response.precios.map((i: any) => i))];
-    console.log('lo llena', data.series[id - 1]);
-    console.log('data', data);
   }
 };
 
