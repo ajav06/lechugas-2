@@ -63,32 +63,33 @@ export const getLastTenDays = async () => {
 
 export const getLastTenDaysByProveedor = async (id: number | string) => {
   try {
-    const fecha = new Date()
+    const options: object = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric'
+    }
+
     let historial: number[] = []
     let fechas: string[] = []
 
     for (let index: number = 10; -1 < index; index--) {
-      const fechaI = new Date(
-        fecha.getFullYear(),
-        fecha.getMonth()+2,
-        fecha.getDate() - index
-      )
-      
-      const fechaF = new Date(
-        fecha.getFullYear(),
-        fecha.getMonth()+2,
-        (fecha.getDate()+1) - index
-      )
-      
-      let rangoI: string = `${fechaI.getFullYear()}-${fechaI.getMonth()-1}-${fechaI.getDate()}`
-      let rangoF: string = `${fechaF.getFullYear()}-${fechaF.getMonth()-1}-${fechaF.getDate()}`
-      console.log('Fecha I: ' + rangoI, ' Fecha F:' + rangoF)
+      const fechaI = new Date()
+      fechaI.setDate(fechaI.getDate() + -index)
+
+      const fechaF = new Date()
+      fechaF.setDate(fechaF.getDate() + 1 + -index)
+
+      let rangoI: string = fechaI.toLocaleString('en-US', options)
+
+      let rangoF: string = fechaF.toLocaleString('en-US', options)
+
       const result = await client.queryObject(
         `SELECT "precio" FROM "public"."dolares" where id_proveedor=${id} and fecha between '${rangoI}' and '${rangoF}' ORDER BY fecha DESC limit 1`
       )
+
       result.rows.forEach((item: any) => {
         historial.push(parseFloat(item.precio))
-        fechas.push(rangoI)
+        fechas.push(fechaI.toLocaleString('es-VE', options))
       })
     }
 

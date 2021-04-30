@@ -212,7 +212,7 @@ export const consultaAutomatica = async () => {
 export const consultaAutomaticaDiaria = async () => {
   try {
     let now: any = time().tz('America/Caracas').t
-    let hours: any = new Date(
+    let hours: Date = new Date(
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
@@ -222,19 +222,11 @@ export const consultaAutomaticaDiaria = async () => {
       0
     )
 
-    let millisTill10: number = hours - now
+    let millisTill10: number = hours.getTime() - now
 
     if (millisTill10 < 0) {
-      hours = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate() + 1,
-        5,
-        10,
-        0,
-        0
-      )
-      millisTill10 = hours - now
+      hours.setHours(hours.getHours() + 24)
+      millisTill10 = hours.getTime() - now
     }
 
     setTimeout(function () {
@@ -250,7 +242,7 @@ export const consultaAutomaticaDiaria = async () => {
 export const consultaAutomaticaDiaria2 = async () => {
   try {
     let now: any = time().tz('America/Caracas').t
-    let hours: any = new Date(
+    let hours: Date = new Date(
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
@@ -260,19 +252,11 @@ export const consultaAutomaticaDiaria2 = async () => {
       0
     )
 
-    let millisTill10: number = hours - now
+    let millisTill10: number = hours.getTime() - now
 
     if (millisTill10 < 0) {
-      hours = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate() + 1,
-        9,
-        10,
-        0,
-        0
-      )
-      millisTill10 = hours - now
+      hours.setHours(hours.getHours() + 24)
+      millisTill10 = hours.getTime() - now
     }
 
     setTimeout(function () {
@@ -288,7 +272,7 @@ export const consultaAutomaticaDiaria2 = async () => {
 export const consultaAutomaticaDiaria3 = async () => {
   try {
     let now: any = time().tz('America/Caracas').t
-    let hours: any = new Date(
+    let hours: Date = new Date(
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
@@ -298,19 +282,11 @@ export const consultaAutomaticaDiaria3 = async () => {
       0
     )
 
-    let millisTill10: number = hours - now
+    let millisTill10: number = hours.getTime() - now
 
     if (millisTill10 < 0) {
-      hours = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
-        now.getHours() + 12,
-        10,
-        0,
-        0
-      )
-      millisTill10 = hours - now
+      hours.setHours(hours.getHours() + 12)
+      millisTill10 = hours.getTime() - now
     }
 
     setTimeout(function () {
