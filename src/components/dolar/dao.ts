@@ -74,10 +74,14 @@ export const getLastTenDaysByProveedor = async (id: number | string) => {
         fecha.getDate() - index
       )
       
+      const fechaF = new Date(
+        fecha.getFullYear(),
+        fecha.getMonth()+1,
+        fecha.getDate() - (index+1)
+      )
+      
       let rangoI: string = `${fechaI.getFullYear()}-${fechaI.getMonth()}-${fechaI.getDate()}`
-      let rangoF: string = `${fechaI.getFullYear()}-${fechaI.getMonth()}-${
-        fechaI.getDate() + 1
-      }`
+      let rangoF: string = `${fechaF.getFullYear()}-${fechaF.getMonth()}-${fechaF.getDate()}`
       console.log('Fecha I: ' + rangoI, ' Fecha F:' + rangoF)
       const result = await client.queryObject(
         `SELECT "precio" FROM "public"."dolares" where id_proveedor=${id} and fecha between '${rangoI}' and '${rangoF}' ORDER BY fecha DESC limit 1`
