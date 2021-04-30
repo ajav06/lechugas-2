@@ -37,7 +37,7 @@ export class Server {
     // consultarDolarToday()
     // consultarYadio()
     // consultarLocalBitcoin()
-    // consultarMonitorDolar()
+    consultarMonitorDolar()
     consultaAutomatica()
     consultaAutomaticaDiaria()
     consultaAutomaticaDiaria2()
