@@ -15,6 +15,7 @@ import {
   consultaAutomatica,
   consultaAutomaticaDiaria,
   consultaAutomaticaDiaria2,
+  consultaAutomaticaDiaria3,
   initPrice
 } from '../components/dolar/controller.ts'
 
@@ -40,6 +41,7 @@ export class Server {
     consultaAutomatica()
     consultaAutomaticaDiaria()
     consultaAutomaticaDiaria2()
+    // consultaAutomaticaDiaria3()
     // initPrice()
   }
 

@@ -278,7 +278,44 @@ export const consultaAutomaticaDiaria2 = async () => {
     setTimeout(function () {
       consultarDolarToday()
       consultarMonitorDolar()
-      consultaAutomaticaDiaria()
+      consultaAutomaticaDiaria2()
+    }, millisTill10)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const consultaAutomaticaDiaria3 = async () => {
+  try {
+    let now: any = time().tz('America/Caracas').t
+    let hours: any = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate(),
+      4,
+      10,
+      0,
+      0
+    )
+
+    let millisTill10: number = hours - now
+
+    if (millisTill10 < 0) {
+      hours = new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate(),
+        now.getHours() + 12,
+        10,
+        0,
+        0
+      )
+      millisTill10 = hours - now
+    }
+
+    setTimeout(function () {
+      consultarMonitorDolar()
+      consultaAutomaticaDiaria3()
     }, millisTill10)
   } catch (error) {
     console.log(error)
