@@ -77,7 +77,7 @@ export const getLastTenDaysByProveedor = async (id: number | string) => {
       const fechaF = new Date(
         fecha.getFullYear(),
         fecha.getMonth()+1,
-        fecha.getDate() - (index+1)
+        fecha.getDate() - (index+2)
       )
       
       let rangoI: string = `${fechaI.getFullYear()}-${fechaI.getMonth()}-${fechaI.getDate()}`
