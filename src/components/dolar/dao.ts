@@ -70,7 +70,7 @@ export const getLastTenDaysByProveedor = async (id: number | string) => {
     for (let index: number = 10; -1 < index; index--) {
       const fechaI = new Date(
         fecha.getFullYear(),
-        fecha.getMonth(),
+        fecha.getMonth()+1,
         fecha.getDate() - index
       )
       
