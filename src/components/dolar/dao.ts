@@ -63,17 +63,17 @@ export const getLastTenDays = async () => {
 
 export const getLastTenDaysByProveedor = async (id: number | string) => {
   try {
-    const fecha = time().tz('America/Caracas').t
-
+    const fecha = new Date()
     let historial: number[] = []
     let fechas: string[] = []
 
     for (let index: number = 10; -1 < index; index--) {
       const fechaI = new Date(
         fecha.getFullYear(),
-        fecha.getMonth() + 1,
+        fecha.getMonth(),
         fecha.getDate() - index
       )
+      console.log(fechaI)
       let rangoI: string = `${fechaI.getFullYear()}-${fechaI.getMonth()}-${fechaI.getDate()}`
       let rangoF: string = `${fechaI.getFullYear()}-${fechaI.getMonth()}-${
         fechaI.getDate() + 1
