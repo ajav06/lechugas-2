@@ -84,7 +84,7 @@ export const getLastTenDaysByProveedor = async (id: number | string) => {
 
       result.rows.forEach((item: any) => {
         historial.push({
-          x: rangoI,
+          x: index,
           y: parseFloat(item.precio)
         })
       })
