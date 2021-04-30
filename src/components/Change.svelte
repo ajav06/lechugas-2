@@ -121,7 +121,7 @@ $: {
         on:input={calculateBS} />
       <h1 class="change-coins  font-comfortaa">USD</h1>
     </div>
-    <div class="font-comfortaa mt-10 info-generic-text capitalize">
+    <div class="font-comfortaa mt-10 info-generic-text">
       {supplier ? formatDate(new Date(supplier.fecha)) : '- de - del -'}
     </div>
     <div class="font-comfortaa mt-5 info-generic-text">

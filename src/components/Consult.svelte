@@ -80,7 +80,7 @@ $: {
   <div class="text-4xl text-price font-comfortaa font-bold text-center mt-10">
     {supplier ? formatNumber(supplier.precio) : 'Cargando..'} BsS
   </div>
-  <div class="font-comfortaa mt-10 info-generic-text capitalize">
+  <div class="font-comfortaa mt-10 info-generic-text">
     {supplier ? formatDate(new Date(supplier.fecha)) : '- de - del -'}
   </div>
   <div class="font-comfortaa mt-5 info-generic-text">
