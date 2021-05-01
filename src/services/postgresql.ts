@@ -7,10 +7,10 @@ import { Proveedor } from '../components/proveedor/model.ts'
 const { args } = Deno
 
 const connector = new PostgresConnector({
-  database: parse(args).DATABASE,
-  host: parse(args).DATABASE,
-  username: parse(args).HOST,
-  password: parse(args).PASSWORD,
+  database: Deno.env.get('DATABASE'),
+  host: Deno.env.get('HOST'),
+  username: Deno.env.get('DATABASE'),
+  password: Deno.env.get('PASSWORD'),
   port: 5432
 })
 
