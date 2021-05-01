@@ -5,13 +5,12 @@ import { Dolar } from '../components/dolar/model.ts'
 import { Proveedor } from '../components/proveedor/model.ts'
 
 const { args } = Deno
-const argPort = parse(args)
 
 const connector = new PostgresConnector({
-  database: argPort.DATABASE,
-  host: argPort.DATABASE,
-  username: argPort.HOST,
-  password: argPort.PASSWORD,
+  database: parse(args).DATABASE,
+  host: parse(args).DATABASE,
+  username: parse(args).HOST,
+  password: parse(args).PASSWORD,
   port: 5432
 })
 
