@@ -4,11 +4,14 @@ import { Client } from 'https://deno.land/x/postgres/mod.ts'
 import { Dolar } from '../components/dolar/model.ts'
 import { Proveedor } from '../components/proveedor/model.ts'
 
+const { args } = Deno
+const argPort = parse(args)
+
 const connector = new PostgresConnector({
-  database: 'sriqxnky',
-  host: 'queenie.db.elephantsql.com',
-  username: 'sriqxnky',
-  password: 'T5bxTkIygubvmBgkydjaK6GDn6bf_BiQ',
+  database: argPort.DATABASE,
+  host: argPort.DATABASE,
+  username: argPort.HOST,
+  password: argPort.PASSWORD,
   port: 5432
 })
 
