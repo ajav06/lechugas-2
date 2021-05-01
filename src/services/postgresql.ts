@@ -1,5 +1,6 @@
 import { Database, PostgresConnector } from 'https://deno.land/x/denodb/mod.ts'
 import { Client } from 'https://deno.land/x/postgres/mod.ts'
+import { parse } from 'https://deno.land/std/flags/mod.ts'
 
 import { Dolar } from '../components/dolar/model.ts'
 import { Proveedor } from '../components/proveedor/model.ts'
