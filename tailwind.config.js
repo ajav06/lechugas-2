@@ -13,6 +13,12 @@ module.exports = {
         active: '#f4f5f6',
         grey: '#746868',
         price: '#002152',
+        DolarToday: '#d70206',
+        Yadio: '#f05b4f',
+        BCV: '#f4c63d',
+        MonitorDolar: '#d17905',
+        LocalBitcoins: '#453D3F',
+        Promedio: '#59922b',
       },
       screens: {
         '3xl': '1792px',
@@ -30,6 +36,5 @@ module.exports = {
       borderColor: ['checked'],
     },
   },
-  plugins: [require('@tailwindcss/forms'),]
-
+  plugins: [require('@tailwindcss/forms')],
 };
