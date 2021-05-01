@@ -15,10 +15,10 @@ const connector = new PostgresConnector({
 })
 
 const client = new Client({
-  user: 'sriqxnky',
-  database: 'sriqxnky',
-  hostname: 'queenie.db.elephantsql.com',
-  password: 'T5bxTkIygubvmBgkydjaK6GDn6bf_BiQ',
+  user: env.USERNAME,
+  database: env.DATABASE,
+  hostname: env.HOST,
+  password: env.PASSWORD,
   port: 5432
 })
 
