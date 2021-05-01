@@ -24,6 +24,14 @@ module.exports = {
         '3xl': '1792px',
         // => @media (min-width: 1792px) { ... }
       },
+      textColor: {
+        DolarToday: '#d70206',
+        Yadio: '#f05b4f',
+        BCV: '#f4c63d',
+        MonitorDolar: '#d17905',
+        LocalBitcoins: '#453D3F',
+        Promedio: '#59922b',
+      },
     },
     fontFamily: {
       comfortaa: ['Comfortaa'],

@@ -127,7 +127,7 @@ $: {
         on:click={() => checkbox(nombre)} /> -->
       <input
         type="checkbox"
-        class="form-checkbox text-gray-600 justify-self-center ml-0 mt-1 md:mt-0 self-center check-suppliers {$history
+        class="form-checkbox text-{nombre} justify-self-center ml-0 mt-1 md:mt-0 self-center check-suppliers {$history
           ? ''
           : 'hidden'}"
         id={`check-${nombre}`}
