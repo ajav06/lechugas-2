@@ -41,7 +41,7 @@ export class Server {
     consultaAutomatica()
     consultaAutomaticaDiaria()
     consultaAutomaticaDiaria2()
-    consultaAutomaticaDiaria3()
+    //consultaAutomaticaDiaria3()
     // initPrice()
   }
 

@@ -231,8 +231,7 @@ export const consultaAutomaticaDiaria = async () => {
 
     setTimeout(function () {
       consultarDolarToday()
-      console.log('consultaAutomaticaDiaria')
-      // consultarMonitorDolar()
+      consultarMonitorDolar()
       consultaAutomaticaDiaria()
     }, millisTill10)
   } catch (error) {
@@ -261,8 +260,7 @@ export const consultaAutomaticaDiaria2 = async () => {
     }
 
     setTimeout(function () {
-      // consultarDolarToday()
-      console.log('consultaAutomaticaDiaria2')
+      consultarDolarToday()
       consultarMonitorDolar()
       consultaAutomaticaDiaria2()
     }, millisTill10)
@@ -287,8 +285,9 @@ export const consultaAutomaticaDiaria3 = async () => {
     let millisTill10: number = hours.getTime() - now
 
     if (millisTill10 < 0) {
-      hours.setHours(hours.getHours() + 12)
+      hours.setHours(hours.getHours() + 24)
       millisTill10 = hours.getTime() - now
+      console.log(millisTill10)
     }
 
     setTimeout(function () {
