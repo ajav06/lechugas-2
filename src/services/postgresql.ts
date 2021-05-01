@@ -1,17 +1,18 @@
 import { Database, PostgresConnector } from 'https://deno.land/x/denodb/mod.ts'
 import { Client } from 'https://deno.land/x/postgres/mod.ts'
-import { parse } from 'https://deno.land/std/flags/mod.ts'
+import { config } from "https://deno.land/x/dotenv/mod.ts";
 
 import { Dolar } from '../components/dolar/model.ts'
 import { Proveedor } from '../components/proveedor/model.ts'
 
-const { args } = Deno
+
+const env = config();
 
 const connector = new PostgresConnector({
-  database: parse(args).DATABASE,
-  host: parse(args).HOST,
-  username: parse(args).USERNAME,
-  password: parse(args).PASSWORD,
+  database: env.DATABASE,
+  host: env.HOST,
+  username: env.USERNAME,
+  password: env.PASSWORD,
   port: 5432
 })
 
