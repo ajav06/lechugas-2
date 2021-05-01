@@ -5,7 +5,7 @@ import { config } from "https://deno.land/x/dotenv/mod.ts";
 import { Dolar } from '../components/dolar/model.ts'
 import { Proveedor } from '../components/proveedor/model.ts'
 
-
+console.log(Deno.env.toObject())
 const env = config();
 
 const connector = new PostgresConnector({
