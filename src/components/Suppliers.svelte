@@ -118,9 +118,16 @@ $: {
         {nombre}
       </span>
 
+      <!-- <input
+        type="checkbox"
+        class="justify-self-center form-checkbox text-gray-600 ml-0 mt-1 md:mt-0 self-center check-suppliers {$history
+          ? ''
+          : 'hidden'}"
+        id={`check-${nombre}`}
+        on:click={() => checkbox(nombre)} /> -->
       <input
         type="checkbox"
-        class="justify-self-center ml-0 mt-1 md:mt-0 self-center check-suppliers {$history
+        class="form-checkbox text-{nombre} justify-self-center ml-0 mt-1 md:mt-0 self-center check-suppliers {$history
           ? ''
           : 'hidden'}"
         id={`check-${nombre}`}
