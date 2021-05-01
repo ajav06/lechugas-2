@@ -45,7 +45,7 @@ const formatHour = (date: string | Date) => {
 const copyClipboard = () => {
   /* Get the text field */
   const el = document.createElement('textarea');
-  el.value = supplier.precio;
+  el.value = `${formatNumber(supplier.precio)} bolívares en ${supplier.nombre}`;
   el.setAttribute('readonly', '');
   el.style.position = 'absolute';
   el.style.left = '-9999px';
