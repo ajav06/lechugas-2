@@ -118,17 +118,20 @@ $: {
         {nombre}
       </span>
 
-      <input
+      <!-- <input
         type="checkbox"
         class="justify-self-center ml-0 mt-1 md:mt-0 self-center check-suppliers {$history
           ? ''
           : 'hidden'}"
         id={`check-${nombre}`}
-        on:click={() => checkbox(nombre)} />
+        on:click={() => checkbox(nombre)} /> -->
       <input
         type="checkbox"
-        class="form-checkbox h-5 w-5 text-gray-600"
-        checked /><span class="ml-2 text-gray-700">label</span>
+        class="form-checkbox text-gray-600 justify-self-center ml-0 mt-1 md:mt-0 self-center check-suppliers {$history
+          ? ''
+          : 'hidden'}"
+        id={`check-${nombre}`}
+        on:click={() => checkbox(nombre)} />
     </button>
 
     {#if id === 1}
