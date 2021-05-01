@@ -231,7 +231,8 @@ export const consultaAutomaticaDiaria = async () => {
 
     setTimeout(function () {
       consultarDolarToday()
-      consultarMonitorDolar()
+      console.log('consultaAutomaticaDiaria')
+      // consultarMonitorDolar()
       consultaAutomaticaDiaria()
     }, millisTill10)
   } catch (error) {
@@ -260,7 +261,8 @@ export const consultaAutomaticaDiaria2 = async () => {
     }
 
     setTimeout(function () {
-      consultarDolarToday()
+      // consultarDolarToday()
+      console.log('consultaAutomaticaDiaria2')
       consultarMonitorDolar()
       consultaAutomaticaDiaria2()
     }, millisTill10)
@@ -290,7 +292,8 @@ export const consultaAutomaticaDiaria3 = async () => {
     }
 
     setTimeout(function () {
-      consultarMonitorDolar()
+      console.log('consultaAutomaticaDiaria3')
+      // consultarMonitorDolar()
       consultaAutomaticaDiaria3()
     }, millisTill10)
   } catch (error) {
