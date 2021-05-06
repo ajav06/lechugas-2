@@ -247,7 +247,7 @@ export const consultaAutomaticaDiaria2 = async () => {
       now.getMonth(),
       now.getDate(),
       9,
-      10,
+      30,
       0,
       0
     )
@@ -277,7 +277,7 @@ export const consultaAutomaticaDiaria3 = async () => {
       now.getMonth(),
       now.getDate(),
       4,
-      10,
+      30,
       0,
       0
     )
