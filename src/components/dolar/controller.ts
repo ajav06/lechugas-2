@@ -216,7 +216,7 @@ export const consultaAutomaticaDiaria = async () => {
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
-      5,
+      13,
       30,
       0,
       0
