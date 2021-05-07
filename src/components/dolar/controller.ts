@@ -217,7 +217,7 @@ export const consultaAutomaticaDiaria = async () => {
       now.getMonth(),
       now.getDate(),
       5,
-      10,
+      30,
       0,
       0
     )
@@ -226,6 +226,7 @@ export const consultaAutomaticaDiaria = async () => {
 
     if (millisTill10 < 0) {
       hours.setHours(hours.getHours() + 24)
+      console.log(hours)
       millisTill10 = hours.getTime() - now
     }
 
@@ -256,6 +257,7 @@ export const consultaAutomaticaDiaria2 = async () => {
 
     if (millisTill10 < 0) {
       hours.setHours(hours.getHours() + 24)
+      console.log(hours)
       millisTill10 = hours.getTime() - now
     }
 
