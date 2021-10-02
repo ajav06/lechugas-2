@@ -3,8 +3,9 @@ import { Client } from 'https://deno.land/x/postgres/mod.ts'
 
 import { Dolar } from '../components/dolar/model.ts'
 import { Proveedor } from '../components/proveedor/model.ts'
+import { config } from 'https://deno.land/x/dotenv/mod.ts'
 
-const env = Deno.env.toObject();
+const env = config()
 
 const connector = new PostgresConnector({
   database: env.DATABASE,
