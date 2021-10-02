@@ -7,6 +7,16 @@ let valueBs: number = 1;
 
 let valueDolar: number = 1;
 
+const enableCalculator = (e: any) => {
+  if (e.target.id === 'VES') {
+    valueBs = e.target.value;
+    calculateDolar();
+  } else {
+    valueDolar = e.target.value;
+    calculateBS();
+  }
+};
+
 const formatNumber = (num: Number) => {
   return num
     .toString()
@@ -63,22 +73,20 @@ const copyClipboard = () => {
   copy.set(true);
 };
 
-const calculateDolar = (e: any) => {
+const calculateDolar = () => {
   let aux: string;
-  valueBs = e.target.value;
+
   if (valueBs) {
     aux = (valueBs / supplier.precio).toFixed(2);
-    console.log(aux);
     valueDolar = parseFloat(aux);
   }
 };
 
-const calculateBS = (e: any) => {
+const calculateBS = () => {
   let aux: string;
-  valueDolar = e.target.value;
+
   if (valueDolar && valueDolar > 0) {
     aux = (valueDolar * supplier.precio).toFixed(2);
-    console.log(aux);
     valueBs = parseFloat(aux);
   }
 };
@@ -95,7 +103,7 @@ $: {
   if ($supplierSelected) {
     let aux: string;
     supplier = $supplierSelected;
-    aux = (supplier.precio * valueDolar).toFixed(2);
+    aux = (supplier.precio * 1).toFixed(2);
     valueBs = parseFloat(aux);
   }
 }
@@ -110,8 +118,10 @@ $: {
       <input
         type="text"
         class="font-comfortaa input-price"
+        id="VES"
         value={valueBs}
-        on:input={calculateDolar} />
+        on:focus={calculateDolar}
+        on:input={enableCalculator} />
       <h1 class="change-coins font-comfortaa">VES</h1>
     </div>
     <div class="info-generic-text font-comfortaa font-bold my-2">=</div>
@@ -119,8 +129,10 @@ $: {
       <input
         type="text"
         class="font-comfortaa input-price"
+        id="USD"
         value={valueDolar}
-        on:input={calculateBS} />
+        on:focus={calculateBS}
+        on:input={enableCalculator} />
       <h1 class="change-coins  font-comfortaa">USD</h1>
     </div>
     <div class="font-comfortaa mt-10 info-generic-text">
