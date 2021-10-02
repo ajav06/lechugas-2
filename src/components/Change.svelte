@@ -116,7 +116,7 @@ $: {
   <div class="grid grid-rows-7 text-center ">
     <div class="flex justify-center mt-6 md:mt-16">
       <input
-        type="text"
+        type="number"
         class="font-comfortaa input-price"
         id="VES"
         value={valueBs}
@@ -127,7 +127,7 @@ $: {
     <div class="info-generic-text font-comfortaa font-bold my-2">=</div>
     <div class="flex justify-center">
       <input
-        type="text"
+        type="number"
         class="font-comfortaa input-price"
         id="USD"
         value={valueDolar}
