@@ -52,7 +52,7 @@ export const getLastTenDays = async () => {
       const result = await client.queryObject(
         `SELECT distinct on (id_proveedor) "precio","id_proveedor" FROM "public"."dolares" where fecha between '${rangoI}' and '${rangoF}' ORDER BY id_proveedor ASC, fecha DESC`
       )
-      result?.rows?.forEach((item) => historial.push(item))
+      result?.rows?.forEach((item: object) => historial.push(item))
       console.log(result?.rows)
     }
     return historial
