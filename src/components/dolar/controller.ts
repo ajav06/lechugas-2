@@ -1,8 +1,5 @@
 import axiod from 'https://deno.land/x/axiod/mod.ts'
 import { time } from 'https://denopkg.com/burhanahmeed/time.ts@v2.0.1/mod.ts'
-import {
-  DOMParser
-} from 'https://deno.land/x/deno_dom/deno-dom-wasm.ts'
 
 import {
   addDolar,
@@ -125,19 +122,13 @@ export const consultarYadio = async () => {
 
 export const consultarMonitorDolar = async () => {
   try {
-    const { data } = await axiod.get(
-      'https://exchangemonitor.net/estadisticas/ve/enparalelovzla'
+    const response = await axiod.get(
+      'https://monitor-dolar.herokuapp.com/api/v1/'
     )
 
-    const page = await new DOMParser().parseFromString(data, 'text/html')
+    const data = response.data.price
 
-    let price = page?.querySelectorAll('div.col.texto h2').item(0).textContent
-
-    price = price?.split(' BS/USD')[0]
-
-    price = String(price)
-
-    price = price?.toString().replace(/\./g, '').replace(',', '.')
+    const price = data.toString().replace(/\./g, '').replace(',', '.')
 
     const last = await getLastDolarByProveedor(4)
 
@@ -225,7 +216,7 @@ export const consultaAutomaticaDiaria = async () => {
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
-      5,
+      13,
       30,
       0,
       0
