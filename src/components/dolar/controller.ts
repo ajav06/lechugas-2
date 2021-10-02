@@ -1,8 +1,7 @@
 import axiod from 'https://deno.land/x/axiod/mod.ts'
 import { time } from 'https://denopkg.com/burhanahmeed/time.ts@v2.0.1/mod.ts'
 import {
-  DOMParser,
-  Element
+  DOMParser
 } from 'https://deno.land/x/deno_dom/deno-dom-wasm.ts'
 
 import {
